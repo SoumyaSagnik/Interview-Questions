@@ -19,7 +19,7 @@ class Stack {
   }
 
   pop() {
-    if (this.isEmpty()) return "underflow";
+    if (this.isEmpty()) return "Underflow";
     return this.items.pop();
   }
 
@@ -36,7 +36,7 @@ class Stack {
     for (let i = 0; i < this.items.length; i++) {
       str += this.items[i] + " ";
     }
-    return str;
+    return str.trim();
   }
 }
 ```
