@@ -124,3 +124,25 @@ b();
 ```
 
 ---
+
+7. Given a string. The task is to check if it is Pangram or not. A pangram is a sentence containing every letter in the English Alphabet.
+
+```javascript
+const str = "A quick brown fox jumps over the lazy dog.";
+
+function isPangram(str) {
+  str = str.toLowerCase().trim();
+  const chars = new Array(26).fill(false);
+
+  for (let i = 0; i < str.length; i++) {
+    if (str.charAt(i) <= "z" && str.charAt(i) >= "a")
+      chars[str.charCodeAt(i) - "a".charCodeAt(0)] = true;
+  }
+
+  return chars.every((char) => char === true);
+}
+
+isPangram(str); // true
+```
+
+---
