@@ -77,7 +77,9 @@ console.log(flattenedArray); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 5. Explain event delegation.
 
-- Event delegation is atechnique in JavaScript that allows us to attach event listeners to parent element, instead of attaching each child of the parent element with a separate event listener.
+- Event delegation is a technique in JavaScript that allows us to attach event listeners to parent element, instead of attaching each child of the parent element with a separate event listener.
+
+- It is useful when there's a large number of child elements. It comes handy even while working with dynamic content where child elements are being added to the parent at runtime.
 
 ```javascript
 const parent = document.querySelector(".parent");
