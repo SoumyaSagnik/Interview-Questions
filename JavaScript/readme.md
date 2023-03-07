@@ -24,6 +24,7 @@ class Stack {
   }
 
   peek() {
+    if (this.isEmpty()) return "No items in stack";
     return this.items[this.items.length - 1];
   }
 
