@@ -35,3 +35,22 @@ class Queue {
 ```
 
 ---
+
+2. Given a nested array [1, 2, 3, [4, 5, [6, 7], 8], 9, 10], flatten it.
+
+```javascript
+const nestedArray = [1, 2, 3, [4, 5, [6, 7], 8], 9, 10];
+
+function flattenArray(arr) {
+  return arr.reduce((acc, curr) => {
+    return Array.isArray(curr)
+      ? acc.concat(flattenArray(curr))
+      : acc.concat(curr);
+  }, []);
+}
+
+const flattenedArray = flattenArray(nestedArray);
+console.log(flattenedArray); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+---
