@@ -146,3 +146,41 @@ isPangram(str); // true
 ```
 
 ---
+
+8. What is Prototype?
+
+- In JavaScript, prototype is an object that is associated with every <a href="https://blogs-ssk.netlify.app/js-factory-constructor">constructor function</a>. Prototype is used to provide inheritance in JavaScript. The prototype object acts as a template or blueprint for creating new objects of a particular type.
+
+```javascript
+const vehicle = {
+  drive: function () {
+    console.log("The car is driving");
+  },
+};
+
+const car = {
+  make: "Honda",
+};
+
+Object.setPrototypeOf(car, vehicle);
+car.drive(); // Output: The car is driving
+```
+
+- When an object is created using a constructor function, the object inherits all the properties and methods defined in the constructor's prototype. The prototype property can be used to add properties and methods to all instances of the constructor function, which can save memory and improve performance.
+
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Person.prototype.sayHello = function () {
+  console.log("Hello from", this.name);
+};
+
+let personA = new Person("John");
+personA.sayHello(); // Output: Hello from John
+```
+
+- Instead of creating the sayHello() function inside the Person class, we've created it outside and attached it to the class' prototype, so that even if thousands of Person objects are created, sayHello() function will be created only once and it'll be accessible to all the objects created through the Person's constructor function. This saves memory.
