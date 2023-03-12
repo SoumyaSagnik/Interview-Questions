@@ -41,3 +41,34 @@ class Stack {
   }
 }
 ```
+
+3. Provide output for the code snippets
+
+```javascript
+var a = 10;
+function b() {
+  var a;
+  console.log(a);
+  a = 20;
+}
+
+b();
+
+// Output: undefined
+```
+
+Reason: hoisting inside function b().
+
+```javascript
+var a = 10;
+function b() {
+  console.log(a);
+  a = 20;
+}
+
+b();
+
+// Output: 10
+```
+
+Reason: Scope chain.
