@@ -184,3 +184,22 @@ personA.sayHello(); // Output: Hello from John
 ```
 
 - Instead of creating the sayHello() function inside the Person class, we've created it outside and attached it to the class' prototype, so that even if thousands of Person objects are created, sayHello() function will be created only once and it'll be accessible to all the objects created through the Person's constructor function. This saves memory.
+
+---
+
+9. Write a program to reverse each word in a string without reversing the string.<p>Eg: John Doe &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Output: nhoJ eoD</p>
+
+```javascript
+const str = "John Doe";
+function reverseWordsInString(str) {
+  const words = str.split(" ");
+  words.forEach((word, index) => {
+    words[index] = word.split("").reverse().join("");
+  });
+
+  return words.join(" ");
+}
+
+console.log(reverseWordsInString(str));
+// Output: nhoJ eoD
+```
