@@ -57,3 +57,13 @@ export default Child;
 ```
 
 In the above example, there are 3 different buttons, each having a count, and each button's count increases once it's clicked.
+
+---
+
+2. Differentiate between state and props.
+
+| Props                                   | State                                                  |
+| --------------------------------------- | ------------------------------------------------------ |
+| Props are immutable                     | State can be changed                                   |
+| Props get passed to the child component | State is managed within the component                  |
+| Props are like function parameters      | State is like a variable declared in the function body |
