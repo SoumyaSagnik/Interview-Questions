@@ -203,3 +203,13 @@ function reverseWordsInString(str) {
 console.log(reverseWordsInString(str));
 // Output: nhoJ eoD
 ```
+
+10. Predict the output.
+
+```javascript
+const a = [null, 0, 1, "0", true, false];
+const b = a.filter((a) => a);
+console.log(b);
+
+// Output: [1, '0', true]
+```
