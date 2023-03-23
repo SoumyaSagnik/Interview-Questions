@@ -73,6 +73,8 @@ b();
 
 Reason: Scope chain.
 
+---
+
 4. Given a file name. Change its extension based on the following rules:
 
 - .txt -> .doc
@@ -125,3 +127,28 @@ Output:
 `test4.txt.pdf`
 `test5.txt.pdf`
 `test6.doc.pdf`
+
+---
+
+5. Write a program to conver 24 hour time to 12 hour time. <p>Example: 00:00 -> 12:00 AM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 18:45 -> 06:45 PM</p>
+
+```javascript
+function toTwelveHHourFormat(time) {
+  const [hour, min] = time.split(":");
+
+  let newHour = parseInt(hour);
+
+  const suffix = newHour < 12 ? "AM" : "PM";
+
+  newHour = newHour % 12 || 12;
+
+  return `${newHour.toString().padStart(2, "0")}:${min} ${suffix}`;
+}
+
+console.log(toTwelveHHourFormat("18:25"));
+console.log(toTwelveHHourFormat("00:00"));
+console.log(toTwelveHHourFormat("12:00"));
+console.log(toTwelveHHourFormat("09:59"));
+```
+
+Output: `06:25 PM` `12:00 AM` `12:00 PM` `09:59 AM`
