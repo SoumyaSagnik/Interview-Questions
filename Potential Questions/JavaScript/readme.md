@@ -213,3 +213,64 @@ console.log(b);
 
 // Output: [1, '0', true]
 ```
+
+11. Sort an array of 0, 1, and 2 in ascending order in 0(n) time complexity and O(1) space complexity.
+
+```javascript
+const arr = [
+  1, 1, 2, 1, 2, 1, 0, 1, 2, 0, 1, 1, 0, 2, 2, 1, 1, 0, 0, 1, 2, 1, 0,
+];
+
+function sortZeroOneTwo(arr) {
+  let zeroCount = 0;
+  let oneCount = 0;
+  let twoCount = 0;
+  let index = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    switch (arr[i]) {
+      case 0:
+        zeroCount++;
+        break;
+      case 1:
+        oneCount++;
+        break;
+      case 2:
+        twoCount++;
+    }
+  }
+
+  for (let i = 0; i < zeroCount; i++) {
+    arr[index] = 0;
+    index++;
+  }
+
+  for (let i = 0; i < oneCount; i++) {
+    arr[index] = 1;
+    index++;
+  }
+
+  for (let i = 0; i < twoCount; i++) {
+    arr[index] = 2;
+    index++;
+  }
+
+  return arr;
+}
+
+console.log(sortZeroOneTwo(arr));
+```
+
+12. Given an array consisting of whole numbers. Find the missing number in array.<p>Eg: [0,1,2,3,4,5,7,8,9] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Output: 6</p>
+
+```javascript
+const arr = [0, 1, 2, 3, 4, 5, 7, 8, 9, 10];
+
+function missingNumber(arr) {
+  const arraySum = arr.reduce((total, n) => total + n, 0);
+  const desiredSum = (arr.length * (arr.length + 1)) / 2;
+  return desiredSum - arraySum;
+}
+
+console.log(missingNumber(arr));
+```

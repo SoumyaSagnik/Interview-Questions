@@ -152,3 +152,22 @@ console.log(toTwelveHHourFormat("09:59"));
 ```
 
 Output: `06:25 PM` `12:00 AM` `12:00 PM` `09:59 AM`
+
+---
+
+6. Predict the output of the following code.
+
+```javascript
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter()); // 20
+console.log(shape.perimeter()); // NaN
+```
+
+Since there's no this keyword for arrow function
