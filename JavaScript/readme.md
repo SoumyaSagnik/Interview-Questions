@@ -178,7 +178,7 @@ Since there's no `this` keyword for arrow function.
 
 - async/await is a newer feature that was introduced in ES2017, while promises were introduced in ES6.
 - Async/await is built on top of promises and provides a more concise syntax for working with asynchronous code.
-- Promises are objects that represent a value that may not be available yet, but will be resolved at some point in the future. Promises have a `then` method that can be used to handle the resolved value and a `cathc` method that can be used to handle the error.
+- Promises are objects that represent a value that may not be available yet, but will be resolved at some point in the future. Promises have a `then` method that can be used to handle the resolved value and a `catch` method that can be used to handle the error.
 - Async/await allows us to write asynchronous code in a way that looks like synchronous code, which can be easier to read and understand. Withh async/await we use the `await` keyword to pause the execution of the function until the promise is resolved or rejected.
 
 <p>When to use what:</p>
