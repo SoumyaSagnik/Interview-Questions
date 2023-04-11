@@ -170,4 +170,26 @@ console.log(shape.diameter()); // 20
 console.log(shape.perimeter()); // NaN
 ```
 
-Since there's no this keyword for arrow function
+Since there's no `this` keyword for arrow function.
+
+---
+
+7. What is the difference between async/await and promises in JavaScript? When would you use one over the other, and how do you handle errors with async/await and promises?
+
+- async/await is a newer feature that was introduced in ES2017, while promises were introduced in ES6.
+- Async/await is built on top of promises and provides a more concise syntax for working with asynchronous code.
+- Promises are objects that represent a value that may not be available yet, but will be resolved at some point in the future. Promises have a `then` method that can be used to handle the resolved value and a `cathc` method that can be used to handle the error.
+- Async/await allows us to write asynchronous code in a way that looks like synchronous code, which can be easier to read and understand. Withh async/await we use the `await` keyword to pause the execution of the function until the promise is resolved or rejected.
+
+<p>When to use what:</p>
+
+- Promises are more appropriate in cases where you need to perform `several` asynchronous operations in parallel. This is because promises can be chained together using the `then()` method, which allows you to execute several asynchronous operations concurrently.
+- Async/await is more appropriate in cases where you need to perform a `sequence` of asynchronous operations . This is because async/await provides a more synchronous way of writing asynchronous code.
+- Promises are more appropriate in cases where you need to handle errors in a more fine-grained way. This is because promises allow you to handle errors on a per-operation basis using the `catch()` method.
+- Async/await is more appropriate in cases where you need to handle errors in a more centralized way. This is because you can use a single `try/catch` block around the entire sequence of asynchronous operations.
+
+<p> In terms of handling errors:
+
+- Both async/await and promises allow you to handle errors using the `try/catch` block. With promises, you can use the `catch()` method to catch errors. With async/await, you can use the `try/catch` block around the `await` expression to catch errors.
+
+---
