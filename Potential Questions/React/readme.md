@@ -67,3 +67,13 @@ In the above example, there are 3 different buttons, each having a count, and ea
 | Props are immutable                     | State can be changed                                   |
 | Props get passed to the child component | State is managed within the component                  |
 | Props are like function parameters      | State is like a variable declared in the function body |
+
+---
+
+3. What are reducers in redux?
+
+- Reducers are functions that are responsible for updating the state of your application in response to actions that have been dispatched. A reducer function takes in two arguments: the current state and an action object.
+
+- Reducers in redux toolkit use thhe `slice reducer` pattern, which means that each slice of state has its own separate reducer function. This makes it easier to manage large and complex state trees, as each slice can be updated independently.
+
+---
