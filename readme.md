@@ -109,3 +109,145 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 ```
 
 ---
+
+7. Differentiate between let, var, and const.
+
+- `Scope`: let and const are block scoped, while var is function scoped.
+
+```javascript
+for (var i = 1; i < 4; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+// Output: 4 4 4
+```
+
+```javascript
+for (let i = 1; i < 4; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 1000);
+}
+// Output: 1 2 3
+```
+
+- `Hoisting`: all the three are `hoisted`. However, `let` and `const` are in a `temporal dead zone`. This means that JavaScript acknowledges its presence by providing it with the value `undefined` but `won't let us use it`. We would be getting the value `undefined` when we access var before its declaration.
+
+```javascript
+console.log(a);
+var a; // undefined
+```
+
+```javascript
+console.log(b); // ReferenceError: b is not defined
+let b;
+```
+
+```javascript
+console.log(c); // ReferenceError: c is not defined
+const c = 30;
+```
+
+- `Global Object`: var gets attached to the global object when declared in the global space, while let and const do not get attached to the global space.
+
+```javascript
+var a = 10;
+let b = 20;
+const c = 30;
+
+console.log(a); // 10
+console.log(b); // 20
+console.log(c); // 30
+
+console.log(this.a); // 10
+console.log(this.b); // undefined
+console.log(this.c); // undefined
+
+console.log(window.a); // 10
+console.log(window.b); // undefined
+console.log(window.c); // undefined
+```
+
+- `Re-declaration`: we can re-declare var in the same scope with the same variable name. This is not possible with let and const.
+
+```javascript
+var a = 10;
+var a = 20;
+console.log(a);
+
+let b = 10;
+let b = 20; // SyntaxError: Identifier 'b' has already been declared
+
+const c = 10;
+const c = 20; // SyntaxError: Identifier 'c' has already been declared
+```
+
+- `Update`: we can update the values in case of var and let, but in case of const it is not possible.
+
+```javascript
+var a = 10;
+a = 20;
+console.log(a); // 20
+
+let b = 10;
+b = 20;
+console.log(b); // 20
+
+const c = 10;
+c = 20; // TypeError: assignment to constant variable.
+```
+
+- `Initialization`: in case of const, we've to initialize the variable in the same line where it is declared. var and let can be initialized later.
+
+```javascript
+var a;
+a = 10; // 10
+
+let b;
+b = 10; // 10
+
+const c;
+c = 10; // SyntaxError: Missing initializer in const declaration
+```
+
+- `Shadowing`: When we have the same variable name in different places, the value of the variable closest to the line of execution is chosen. This phenomenon is called shadowing.
+
+```javascript
+var a = 10;
+const b = 20;
+let c = 30;
+
+{
+  var a = 100;
+  const b = 200;
+  let c = 300;
+  console.log(a); // 100
+  console.log(b); // 200
+  console.log(c); // 300
+}
+
+console.log(a); // 100
+console.log(b); // 20
+console.log(c); // 30
+```
+
+- In case of var, shadowing is permanent. This is because var is function scoped and gets attached to the global object. So a variable having the same name within a block and outside would point to the same location in the global object.
+
+- var can be used to shadow let and const, but let or const cannot be used to shadow var. This is because var is not block scoped. Hence it exists outside the block as well and we know from above that let and const cannot have same variable name redeclared in the same scope.
+
+```javascript
+var a = 10;
+{
+  let a = 20;
+  console.log(a); // 20
+}
+console.log(a); // 10
+```
+
+```javascript
+let a = 10;
+{
+  var a = 20; // SyntaxError: Identifier 'a' has already been declared
+}
+```
