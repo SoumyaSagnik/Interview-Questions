@@ -251,3 +251,82 @@ let a = 10;
   var a = 20; // SyntaxError: Identifier 'a' has already been declared
 }
 ```
+
+---
+
+8. What is a Promise? What is Promsie Chain?
+
+`Promise`
+
+- A promise is an object that represents the eventual completion or failure of an asynchronous operation. Essentially, a promise is an object returned by an async operation to which we attach callbacks instead of passing the callback to another function.
+
+The promise object has three states: `Pending`, `Fulfilled`, and `Rejected`.
+
+- `Pending`: The initial state of a Promise before it has been resolved or rejected.
+
+- `Fulfilled`: The state of a Promise when it has been resolved, meaning that the value it represents is now available.
+
+- `Rejected`: The state of a Promise when it has been rejected, meaning that an error has occured and the value it represents is not available.
+
+A promise has two important methods:
+
+- `then()`: This method is used to handle the fulfullment of a Promise. It takes two arguments: a callback function that will be executed when the Promise is resolved, and an optional callback function that will be executed if the promise is rejected.
+
+- `catch()`: This method is used to handle the rejection of a Promise. It takes one argument: a callback function that will be executed if the Promise is rejected.
+
+```javascript
+function fetchData() {
+  return fetch("https://example.com/data")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network error");
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      switch (error.message) {
+        case "Network error":
+          console.log("There was a network error");
+          break;
+        case "JSON parse error":
+          console.log("There was a problem parsing the JSON data");
+          break;
+        default:
+          console.log("An unknown error occured");
+      }
+    });
+}
+```
+
+Advantages of promises:
+
+- Promise is immutable. So there is no possibility of altering the data we received from an asynchronous event.
+- Promise allows us to avoid `inversion of control` and `pyramid of doom`.
+
+- First we have to understand that before promises, people used to pass callbacks to another function in order to perform async operations. This caused `inversion of control` and `pyramid of doom`.
+
+- `Inversion of Control`: When we pass a function to another function as callback, the function passed as callback is completely at the mercy of the function to which it is passed. We cannot call the callback function directly. Hence we lose control over a certain portion of our code. This situation is known as inversion of control. While using promises, we have the `then()` which resolves this issue.
+
+- `Pyramid of Doom`: Also known as `callback hell`, this happens when we chain too many interdependent async operations. There will be callback inside a function, the callback will have another callback, and this continues. This results in the code growing horizontally instead of vertical, and this structure is known as the Pyramid of Doom.
+
+`Promise Chain`
+
+- A Promise Chain is a sequence of asynchronous operations that are executed one after the other, with each operation waiting for the previous one to complete before starting.
+
+```javascript
+function promiseChain(data) {
+  operation1(data)
+    .then((data2) => {
+      return operation2(data2);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+    .then((data3) => {
+      return operation3(data3);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+}
+```
