@@ -330,3 +330,150 @@ function promiseChain(data) {
     });
 }
 ```
+
+---
+
+9. Output Questions
+
+```javascript
+function promisify(number, increase) {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(number * 2 + increase), 100)
+  );
+}
+
+async function double(number, increase) {
+  const value = await promisify(number, increase);
+  return value;
+}
+
+async function run() {
+  let result;
+  result = await double(5, 0);
+  result = await double(10, result);
+  result = await double(20, result);
+  console.log(result);
+}
+run();
+
+// Output: 70
+```
+
+```javascript
+for (var i = 1; i <= 3; i++) {
+  (function (index) {
+    setTimeout(function () {
+      console.log(index);
+    }, i * 1000);
+  })(i);
+}
+
+// Output: 1 2 3
+```
+
+```javascript
+for (var i = 1; i <= 3; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, i * 1000);
+}
+
+// Output: 4 4 4
+```
+
+```javascript
+for (var i = 1, j = 1; i <= 3; i++, j++) {
+  setTimeout(
+    function () {
+      console.log(this);
+    }.bind(i),
+    j * 100
+  );
+}
+
+// Output: Number {1} Number {2} Number {3}
+```
+
+```javascript
+let x = true;
+let count = 0;
+setTimeout(() => {
+  x = false;
+}, 2000);
+
+while (1) {
+  if (x) {
+    count++;
+    console.log(count);
+  }
+}
+
+// Output: infinite loop
+/* JS is a single threaded language. The while loop will block the
+callstack and the setTimeout will remain in the callback queue, starving
+to be put to the callstack for execution.
+```
+
+---
+
+10. If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?
+
+- The `promise` will be given `priority` over the `setTimeout` function. In JavaScript, the event loop is responsible for managing the call stack, callback queue and the microtask queue. Promises and operations from mutation observer go to the microtask queue while all other asynchronous operations are passed to the callback queue till they're ready to be executed in the callstack.
+
+- The event loop keeps on monitoring all three: callstack, callback queue, and the microtask queue. If there is something waiting in the callback queue or the microtask queue to be executed, it is the event loop which checks if the callstack is free and then it pushes the pending task of the callback/ microtask queue to the callstack. Everything in JS is executed inside the callstack.
+
+- Now it is given to us that the call stack was busy and the promise has been brought to the microtask queue and the setTimeout function has been brought to the callback queue. `Microtask queue has higher priority than the callback queue`. Hence the event loop picks up the promise and sends it to the callstack, hence it is executed first. After that, the callback from setTimeout is executed.
+
+---
+
+11. Explain the useMemo hook in react.
+
+- The useMemo hook accepts a callback function and a list of dependencies as parameters, and returns the `memoized` value returned by the passsed function. The callback passed to the useMemo hook will only be executed if any value passed in the dependency array changes. `It is useful to avoid expensive calculations on every render when the returned value is not going to change.`
+
+```javascript
+const App = () => {
+  const [dark, setDark] = useState(false);
+  const [value, setValue] = useState(1);
+  const doubleNumber = useMemo(() => slowFunction(value), [value]);
+
+  const styles = useMemo(() => {
+    return {
+      backgroundColor: dark ? "black" : "white",
+      color: dark ? "white" : "black",
+    };
+  }, [dark]);
+
+  useEffect(() => {
+    console.log("useEffect called");
+  }, [styles]);
+
+  function handleValueChange(e) {
+    setValue(e.target.value);
+  }
+
+  function handleThemeChange() {
+    console.log("Theme change called");
+    setDark((prevDark) => !prevDark);
+  }
+
+  function slowFunction(value) {
+    console.log("Slow function called");
+    for (let i = 0; i < 1000000000; i++) {}
+    return value * 2;
+  }
+
+  return (
+    <>
+      <input type="number" value={value} onChange={handleValueChange} />
+      <button onClick={handleThemeChange}>Change Theme</button>
+      <div style={styles}>{doubleNumber}</div>
+    </>
+  );
+};
+```
+
+- In the above code, we have an input tag, a button and a div that shows 2x value of the input tag. We've used the useMemo hook in two places here. One where the value passed in dependency array is `primitive` and other where it is a `reference`. The `slowFunction` slows down the code by iterating over a long number, doing nothing. If we don't use the useMemo hook, this function will be called everytime the component rerenders, and the component will re-render everytime any state in the component changes.
+
+- As you can see, the `slowFunction` has nothing to do with changing the `dark` state. Hence we've memoized the `slowFunction`, which will now run only when the `value` state changes. It won't run if we change the `dark` state in our application anymore.
+
+- For the second part, we're memoizing the `styles` object. Here we're checking for `referential equality`. Basically, the `styles` object is formed everytime the component re-renders and even if the value inside it is same, the code inside the `useEffect` would be executed everytime if we don't use `useMemo` since a new object is created everytime and objects point to a particular location, which is compared, rather than what's inside the object. Hence we're memoizing the `styles` object itself such that the code inside useEffect runs only when the value of the `dark` state changes, which in turn would change the `styles` object.
