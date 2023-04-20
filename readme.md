@@ -477,3 +477,77 @@ const App = () => {
 - As you can see, the `slowFunction` has nothing to do with changing the `dark` state. Hence we've memoized the `slowFunction`, which will now run only when the `value` state changes. It won't run if we change the `dark` state in our application anymore.
 
 - For the second part, we're memoizing the `styles` object. Here we're checking for `referential equality`. Basically, the `styles` object is formed everytime the component re-renders and even if the value inside it is same, the code inside the `useEffect` would be executed everytime if we don't use `useMemo` since a new object is created everytime and objects point to a particular location, which is compared, rather than what's inside the object. Hence we're memoizing the `styles` object itself such that the code inside useEffect runs only when the value of the `dark` state changes, which in turn would change the `styles` object.
+
+---
+
+12. Explain the useCallback hook in react.
+
+- The useCallback hook returns a `memoized callback` when passed a function and a list of dependencies as parameters. It is useful when a component is passing a callback to its child component to prevent the re-rendering of the child component when not required.
+
+- The major diffrence between `useCallback` and `useMemo` is that useCallabck returns a `memoized function` which can later be called. useMemo, on the other hand returns a `memoized value`.
+
+```javascript
+// App.jsx
+
+import { useState, useCallback } from "react";
+import List from "./List";
+
+const App = () => {
+  const [value, setValue] = useState(1);
+  const [isLight, setIsLight] = useState(true);
+  const styles = {
+    backgroundColor: isLight ? "white" : "yellow",
+  };
+
+  const getValueList = useCallback(
+    (incrementor) => {
+      return [
+        value + incrementor,
+        value + 1 + incrementor,
+        value + 2 + incrementor,
+      ];
+    },
+    [value]
+  );
+
+  function handleClick() {
+    setIsLight((prevValue) => !prevValue);
+  }
+
+  function handleValueChange(e) {
+    setValue(parseInt(e.target.value));
+  }
+
+  return (
+    <div style={styles}>
+      <input type="number" value={value} onChange={handleValueChange} />
+      <button onClick={handleClick}>Toggle Theme</button>
+      <List getValueList={getValueList} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+```javascript
+// List.jsx
+
+import { useState, useEffect } from "react";
+
+const List = ({ getValueList }) => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(getValueList(3));
+    console.log("updating items");
+  }, [getValueList]);
+
+  return items.map((item) => <div key={item}>{item}</div>);
+};
+
+export default List;
+```
+
+- In the above code, we have parent App.jsx and child List.jsx. Parent component has a function `getValueList` that returns a list of items which is to be passed to the child component. If we don't use the `useCallback` hook, the `useEffect` inside the child component will be executed everytime the parent re-renders since everytime a new function is being created in the parent, which will always be different. In order to get around this, we have `memoized` the `getValueList` function by placing it inside the `useCallback` hook, and since the `getValueList` function returns a list which dependes only on the `value` state, we have the `value` state inside the dependency array. Now the `useEffect` will not be executed if we change the `isLight` state in the parent component, thus optimizing the app.
+
+---
