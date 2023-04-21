@@ -2,7 +2,7 @@
 
 `HTML` `CSS` `JavaScript` `React`
 
-1. What is div vs span or block vs inline?
+1. **What is div vs span or block vs inline?**
 
 - `Block-level Elements`: A block level element always starts on a new line, and the browsers automatically add some space (margin) before and after the element. A block level element always takes up the full width available (100% of parent). Eg: div, p.
 
@@ -20,7 +20,7 @@
 
 ---
 
-2. What is inline-block? Difference between block, inline-block, and inline.
+2. **What is inline-block? Difference between block, inline-block, and inline.**
 
 - The three most common values for `display` property are: `block`, `inline-block`, and `inline`.
 
@@ -32,7 +32,7 @@
 
 ---
 
-3. What is SCSS? How is it different from CSS? How does it get transpired to CSS?
+3. **What is SCSS? How is it different from CSS? How does it get transpired to CSS?**
 
 - SCSS (Sassy CSS) is a CSS `preprocessor` that adds functionality features to CSS. Differences are listed below:
 
@@ -56,7 +56,7 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 
 ---
 
-4. What are positions in CSS? Differentiate between them.
+4. **What are positions in CSS? Differentiate between them.**
 
 - Positions in CSS are listed below:
 
@@ -80,7 +80,7 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 
 ---
 
-5. Explain CSS Specificity.
+5. **Explain CSS Specificity.**
 
 - In CSS, specificity is the measure of how specific a selector is in selecting an element or group of elements on a web page. Specificity is determined by the number and type of selectors used in the CSS rule, `and it determines which CSS rule is applied to an element when multiple rules target the same element`.
 
@@ -90,7 +90,7 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 
 ---
 
-6. What is the difference between Reset CSS and Normalize CSS?
+6. **What is the difference between Reset CSS and Normalize CSS?**
 
 - By default, different web browsers may have slightly different styles for HTML elements like headings, paragraphs, lists, and links. This can make it difficult to create consistent styles across different browsers.
 
@@ -110,7 +110,7 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 
 ---
 
-7. Differentiate between let, var, and const.
+7. **Differentiate between let, var, and const.**
 
 - `Scope`: let and const are block scoped, while var is function scoped.
 
@@ -254,7 +254,7 @@ let a = 10;
 
 ---
 
-8. What is a Promise? What is Promsie Chain?
+8. **What is a Promise? What is Promsie Chain?**
 
 `Promise`
 
@@ -333,7 +333,7 @@ function promiseChain(data) {
 
 ---
 
-9. Output Questions
+9. **Output Questions**
 
 ```javascript
 function promisify(number, increase) {
@@ -416,7 +416,7 @@ to be put to the callstack for execution.
 
 ---
 
-10. If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?
+10. **If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?**
 
 - The `promise` will be given `priority` over the `setTimeout` function. In JavaScript, the event loop is responsible for managing the call stack, callback queue and the microtask queue. Promises and operations from mutation observer go to the microtask queue while all other asynchronous operations are passed to the callback queue till they're ready to be executed in the callstack.
 
@@ -426,7 +426,7 @@ to be put to the callstack for execution.
 
 ---
 
-11. Explain the useMemo hook in react.
+11. **Explain the useMemo hook in react.**
 
 - The useMemo hook accepts a callback function and a list of dependencies as parameters, and returns the `memoized` value returned by the passsed function. The callback passed to the useMemo hook will only be executed if any value passed in the dependency array changes. `It is useful to avoid expensive calculations on every render when the returned value is not going to change.`
 
@@ -480,7 +480,7 @@ const App = () => {
 
 ---
 
-12. Explain the useCallback hook in react.
+12. **Explain the useCallback hook in react.**
 
 - The useCallback hook returns a `memoized callback` when passed a function and a list of dependencies as parameters. It is useful when a component is passing a callback to its child component to prevent the re-rendering of the child component when not required.
 
@@ -552,7 +552,7 @@ export default List;
 
 ---
 
-13. What are pure components in react?
+13. **What are pure components in react?**
 
 - A pure component is a component that that does not re-render when the value of state and props associated with it has been updated with the same values. Pure component restricts re-rendering, ensuring higher performance of the component.
 
@@ -572,7 +572,7 @@ export default PureComponent;
 
 ---
 
-14. What is the virtual dom in react?
+14. **What is the virtual dom in react?**
 
 - React maintains a clone of the real DOM (Document Object Model) which is called the virtual DOM. Whenever there's an update, react creates a new version of the virtual DOM.
 
@@ -582,7 +582,7 @@ export default PureComponent;
 
 ---
 
-15. What are the lifecycle methods in a class component?
+15. **What are the lifecycle methods in a class component?**
 
 - We can mainly classify the methods into four phases: `Mounting` `Updating` `Unmounting` `Error Handling`.
 
@@ -596,7 +596,7 @@ export default PureComponent;
 
 ---
 
-16. Why redux uses immutable objects?
+16. **Why redux uses immutable objects?**
 
 - Redux objects are made immutable for the following reasons:
 
@@ -608,7 +608,7 @@ export default PureComponent;
 
 ---
 
-17. What is the `this` keyword in JavaScript?
+17. **What is the `this` keyword in JavaScript?**
 
 - The `this` keyword in JavaScript referes to the object that is currently executing the code. At the global level, this points to the global object, which is `window` in case of browsers.
 
@@ -635,3 +635,53 @@ const checker = new Check();
 ```
 
 `When this appears inside a function that is not bound to any object or class, the value of this defaults to the global object`.
+
+---
+
+18. **Explain the box model in CSS.**
+
+- The box model has four parts: `Content` `Padding` `Border` `Margin`
+
+- `Content`: This is the actual content.
+
+- `Padding`: This is the space between the content and the border of the box.
+
+- `Border`: This is a line that surrounds the padding and content of the box.
+
+- `Margin`: This is the space between the border of the box and the neighbouring elements on the page.
+
+---
+
+19. **Why are meta tags used? What are the meta tags you know?**
+
+- Meta tags are used in HTML to provide additional information about a web page to search engines, social media platforms, and web browsers. They help in `Search Engine Optimization`. They are placed in the head section of an HTML document and are not visible on the web page itself. Some common meta tags are listed below:
+
+- `<meta charset="utf-8">`: Specifies the character encoding of the HTML document.
+
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Sets the viewport width and initial zoom level for mobile devices.
+
+- `<meta name="description" content="...">`: Provides a short description of the web page that can be displayed in search engine results.
+
+- `<meta name="keywords" content="...">`: Specifies the keywords or phrases that the web apge is related to.
+
+- `<meta name="robots" content="...">`: Instructs search engines how to crawl and index the web page.
+
+- `<meta name="author" content="...">`: Specifies the author of the web page.
+
+- `meta name="theme-color" content="..."`: Sets the color of the browser toolbar and browsers's UI when the user is on the web page.
+
+---
+
+20. **How can you improve SEO just by HTML tags?**
+
+- `Use relevant and descriptive title tags`: The title tag is one of the most important HTML tags for SEO. Make sure your title tag accurately reflects the content of your page and includes your target keywords.
+
+- `Use header tags to structure your content`: Header tags help to organize content and make it more readable. Use header tags to break your content into logical sections and include your target keywords in the headings.
+
+- `Use meta descriptions to provide a summary of your content`: Meta descriptions appear in search engine results and can help to improve click-through rates.
+
+- `Use alt tag to describe your images`: Alt tags are used to describe images for people with visual impairments and for search engines.
+
+- `Do not used span and div tags everywhere`: Use Semantic HTML wherever possible
+
+---
