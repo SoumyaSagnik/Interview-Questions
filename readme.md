@@ -638,21 +638,7 @@ const checker = new Check();
 
 ---
 
-18. **Explain the box model in CSS.**
-
-- The box model has four parts: `Content` `Padding` `Border` `Margin`
-
-- `Content`: This is the actual content.
-
-- `Padding`: This is the space between the content and the border of the box.
-
-- `Border`: This is a line that surrounds the padding and content of the box.
-
-- `Margin`: This is the space between the border of the box and the neighbouring elements on the page.
-
----
-
-19. **Why are meta tags used? What are the meta tags you know?**
+18. **Why are meta tags used? What are the meta tags you know?**
 
 - Meta tags are used in HTML to provide additional information about a web page to search engines, social media platforms, and web browsers. They help in `Search Engine Optimization`. They are placed in the head section of an HTML document and are not visible on the web page itself. Some common meta tags are listed below:
 
@@ -672,7 +658,7 @@ const checker = new Check();
 
 ---
 
-20. **How can you improve SEO just by HTML tags?**
+19. **How can you improve SEO just by HTML tags?**
 
 - `Use relevant and descriptive title tags`: The title tag is one of the most important HTML tags for SEO. Make sure your title tag accurately reflects the content of your page and includes your target keywords.
 
@@ -683,5 +669,29 @@ const checker = new Check();
 - `Use alt tag to describe your images`: Alt tags are used to describe images for people with visual impairments and for search engines.
 
 - `Do not used span and div tags everywhere`: Use Semantic HTML wherever possible
+
+---
+
+20. **Explain the box model in CSS.**
+
+- The box model has four parts: `Content` `Padding` `Border` `Margin`
+
+- `Content`: This is the actual content.
+
+- `Padding`: This is the space between the content and the border of the box.
+
+- `Border`: This is a line that surrounds the padding and content of the box.
+
+- `Margin`: This is the space between the border of the box and the neighbouring elements on the page.
+
+---
+
+21. **Explain box-sizing property in CSS.**
+
+- The `box-sizing` property controls how the `total size of an element is calculated`, including its content, padding, and border. The possible values for box-sizing are:
+
+- `content-box`: This is the default value. It tells the browser to `calculate the size of an element based on its content only, without including padding or border`. In other words, the size of an element is determined by the width and height properties.
+
+- `border-box`: It tells the browser to calculate the size of an element based on `its content, padding, and border`. In other words, the width and height properties specify the size of the content area, and the padding and border are added to it. This is more convenient because it lets us set the width and height of an element without having to take into account the padding and border.
 
 ---
