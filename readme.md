@@ -595,3 +595,15 @@ export default PureComponent;
 - `Error Handling`: The error handling methods are called when there's an error during rendering, in a lifecycle method, or in the constructor of any child component. During error handling, we have 2 methods: `static getDerivedStateFromError` `componentDidCatch`.
 
 ---
+
+16. Why redux uses immutable objects?
+
+- Redux objects are made immutable for the following reasons:
+
+- Predictability: By making redux objects immutable, the state of the application becomes predictable. When an action is dispatched to the store, the state is updated by returning a new object with the updated properties, rather than mutating the existing object. This means that the state of the application can be tracked and easily tracked back to the source of the changes.
+
+- Performance: By using immutable objects, the performance of the application can be improved, particularly when working with large data sets. Because immutable objects can be shared between different parts of the application without worrying about them being mutated, unnecessary copies of data can be avoided, leading to faster perfromance.
+
+- Debugging: Debugging can be easire with immutable objects because they allow you to easily trace the state of the application back to the source of the changes.
+
+---
