@@ -695,3 +695,129 @@ const checker = new Check();
 - `border-box`: It tells the browser to calculate the size of an element based on `its content, padding, and border`. In other words, the width and height properties specify the size of the content area, and the padding and border are added to it. This is more convenient because it lets us set the width and height of an element without having to take into account the padding and border.
 
 ---
+
+22. **What are the call, bind, and apply methods in JavaScript? Differentiate between them.**
+
+- `call` `bind` and `apply` are used to manipulate the `this` keyword and pass arguments to functions in different ways.
+
+- Whenever we call a function, by default js behind the scene uses the `call` method. When we have a function defined inside an object, and we want to reuse the function inside that object in another object, we use `call` `bind` and `apply`.
+
+- `call` and `apply` **invoke the function immediately**, while **bind returns a function that can be invoked later**.
+
+```javascript
+function helloWorld() {
+  console.log("Hello World");
+}
+
+helloWorld();
+helloWorld.call();
+helloWorld.apply();
+
+// the above three lines will log the same output.
+// JS by default uses .call() to call a function.
+```
+
+```javascript
+let participant1 = {
+  name: "John",
+  battery: 70,
+  chargeBattery: function () {
+    this.battery = 100;
+  },
+};
+
+let participant2 = {
+  name: "Doe",
+  battery: 30,
+};
+
+console.log(participant1.battery); // 70
+participant1.chargeBattery();
+console.log(participant1.battery); // 100
+
+console.log(participant2.battery); // 30
+participant1.chargeBattery.call(participant2);
+console.log(participant2.battery); // 100
+```
+
+```javascript
+let participant1 = {
+  name: "John",
+  battery: 70,
+  chargeBattery: function (p1, p2) {
+    this.battery = this.battery + p1 + p2;
+  },
+};
+
+let participant2 = {
+  name: "Doe",
+  battery: 30,
+};
+
+console.log(participant2.battery); // 30
+participant1.chargeBattery.call(participant2, 10, 20);
+console.log(participant2.battery); // 60
+```
+
+- While using the `call` method, the first argument is `this`, followed by `n arguments`.
+
+```javascript
+let participant1 = {
+  name: "John",
+  battery: 70,
+  chargeBattery: function (p1, p2) {
+    this.battery = this.battery + p1 + p2;
+  },
+};
+
+let participant2 = {
+  name: "Doe",
+  battery: 30,
+};
+
+console.log(participant2.battery); // 30
+participant1.chargeBattery.apply(participant2, [10, 20]);
+console.log(participant2.battery); // 60
+```
+
+- While using the `apply` method, the first argument is `this`, `followed by an array of n arguments`.
+
+```javascript
+let participant1 = {
+  name: "John",
+  battery: 70,
+  chargeBattery: function (p1, p2) {
+    this.battery = this.battery + p1 + p2;
+  },
+};
+
+let participant2 = {
+  name: "Doe",
+  battery: 30,
+};
+
+let participant3 = {
+  name: "Sally",
+  battery: 25,
+};
+
+console.log(participant2.battery); // 30
+const newBattery2 = participant1.chargeBattery.bind(participant2, 10, 20);
+newBattery2();
+console.log(participant2.battery); // 60
+
+console.log(participant3.battery); // 25
+const newBattery3 = participant1.chargeBattery.bind(participant3, ...[10, 20]);
+newBattery3();
+console.log(participant3.battery); // 55
+```
+
+- `bind` returns a function that can be invoked later instead of invoking the function immediately. The first parameter is `this`, followed by `n arguments`. However, we can also pass an `array of n arguments preceeded by spread operator` as shown in the example above.
+
+- Differences are listed below:
+
+- `call` and `apply` invoke the function immediately, while `bind` returns a function that can be invoked later.
+
+- `call` has second argument as `n parameters`, `apply` has second argument as `array of n parameters`.
+
+---
