@@ -607,3 +607,31 @@ export default PureComponent;
 - Debugging: Debugging can be easire with immutable objects because they allow you to easily trace the state of the application back to the source of the changes.
 
 ---
+
+17. What is the `this` keyword in JavaScript?
+
+- The `this` keyword in JavaScript referes to the object that is currently executing the code. At the global level, this points to the global object, which is `window` in case of browsers.
+
+```javascript
+console.log(this === window); // true
+```
+
+```javascript
+function check() {
+  console.log(this === window); // true
+}
+
+check();
+```
+
+```javascript
+class Check {
+  constructor() {
+    console.log(this === window); // false
+  }
+}
+
+const checker = new Check();
+```
+
+`When this appears inside a function that is not bound to any object or class, the value of this defaults to the global object`.
