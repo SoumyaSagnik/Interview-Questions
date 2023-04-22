@@ -821,3 +821,83 @@ console.log(participant3.battery); // 55
 - `call` has second argument as `n parameters`, `apply` has second argument as `array of n parameters`.
 
 ---
+
+23. **What is polyfill in JavaScript? Write polyfill for call, bind, and apply.**
+
+- Polyfill is a piece of code that provides functionality that is not natively available in the current version of a browser or JS engine. Polyfills are commonly used to implement new web standards or features that have been added to JS but are not yet widely supported by all web browsers. For example, if a new JavaScript method is introduced in the latest version of the language, but older browsers do not support it, a polyfill can be written to add support for the new method in those older browsers.
+
+**Polyfill for bind**
+
+```javascript
+const obj = {
+  a: 10,
+  b: 20,
+};
+
+function test(a, b) {
+  console.log(`${this.a} ${this.b} | ${a} ${b}`);
+}
+
+// Polyfill
+Function.prototype.myBind = function (obj, ...args) {
+  obj.property = this; // this here is test
+  return () => obj.property(...args);
+};
+
+const mb = test.myBind(obj, 40, 50);
+mb(); // 10 20 | 40 50
+
+//Original bind
+const og = test.bind(obj, 4, 5);
+og(); // 10 20 | 4 5
+```
+
+**Polyfill for call**
+
+```javascript
+const obj = {
+  a: 10,
+  b: 20,
+};
+
+function test(a, b) {
+  console.log(`${this.a} ${this.b} || ${a} ${b}`);
+}
+
+Function.prototype.myCall = function (obj, ...args) {
+  obj.property = this;
+  return obj.property(...args);
+};
+
+// myCall
+test.myCall(obj, 6, 9); // 10 20 | 6 9
+
+// Original call
+test.call(obj, 5, 10); // 10 20 | 5 10
+```
+
+**Polyfill for apply**
+
+```javascript
+const obj = {
+  a: 10,
+  b: 20,
+};
+
+function test(a, b) {
+  console.log(`${this.a} ${this.b} || ${a} ${b}`);
+}
+
+Function.prototype.myApply = function (obj, args) {
+  obj.property = this;
+  return obj.property(...args);
+};
+
+// myApply
+test.myApply(obj, [6, 9]);
+
+// Original apply
+test.apply(obj, [5, 10]);
+```
+
+---
