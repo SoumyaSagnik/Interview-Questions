@@ -901,3 +901,62 @@ test.apply(obj, [5, 10]);
 ```
 
 ---
+
+24. What are generator functions in JavaScript?
+
+- `Generators are functoins that can be exited and later re-entered.` Their context will be saved across re-entrances.
+
+```javascript
+function* simpleGenerator() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const generatorObject = simpleGenerator();
+console.log(generatorObject.next()); // {value: 1, done: false}
+console.log(generatorObject.next()); // {value: 2, done: false}
+console.log(generatorObject.next()); // {value: 3, done: false}
+console.log(generatorObject.next()); // {value: undefined, done: true}
+console.log(generatorObject.next()); // {value: undefined, done: true} ...
+```
+
+- `yield` is like a special type of return that is only useful inside of a generator. That is because the purpose of the generator is to run some code, then return a value, then run some more code, repeating the process till the entire code inside the generater has been executed.
+
+- Every generator object has access to a function called `next()` that allows us to execute the code inside the generator until a yield statement has been approached. As we come across a `yield` statement, the function is exited.
+
+- The generator object has two things, `value` and `done`. `value` is what is yielded by the generator and done implies whether entire code inside the generator has been executed.
+
+- Some uses of generators are as follows:
+
+**To generate an infinite loop**
+
+```javascript
+function* infiniteLoop() {
+  let id = 1;
+  while (true) {
+    yield id;
+    id++;
+  }
+}
+
+const id = infiniteLoop();
+console.log(id.next()); // {value: 1, done: false}
+console.log(id.next()); // {value: 2, done: false}
+```
+
+**Using generator as an iterator**
+
+```javascript
+function* iterator(array) {
+  for (let i = 0; i < array.length; i++) {
+    yield array[i];
+  }
+}
+
+const arrayIterator = iterator([1, 2, 3]);
+console.log(arrayIterator.next().value); // 1
+console.log(arrayIterator.next().value); // 2
+```
+
+---
