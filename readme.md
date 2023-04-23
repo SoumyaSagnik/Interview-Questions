@@ -1221,7 +1221,7 @@ export default useFetch;
 
 - `Worse SEO than SSR`
 
-**\*SSR vs CSR**
+**SSR vs CSR**
 
 - `Page load time`: Page load time is an important metric, especially for SEO. The initial page load time in SSR is faster than in CSR. This is because in SSR, the server responds by sending pre-rendered HTML, which can be viewed by the user. In CSR, the entire code (HTML, CSS, and JS) needs to be rendered before the user can view the page.
 
@@ -1233,6 +1233,6 @@ export default useFetch;
 
 **SSR with hydration**
 
-This is a technique where the server generates the initial HTML and sends it to the client, then the client takes over and `hydrates` the static HTML into a fully interactive application. This combines the two main advantages of SSR and CSR. SSR initially so that SEO is better with less initial load time and then CSR so that the website is more interactive.
+- This is a technique where the server generates the initial HTML and sends it to the client, then the client takes over and `hydrates` the static HTML into a fully interactive application. This combines the two main advantages of SSR and CSR. SSR initially so that SEO is better with less initial load time and then CSR so that the website is more interactive.
 
 ---
