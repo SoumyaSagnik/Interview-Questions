@@ -1101,3 +1101,138 @@ const Child = () => {
 
 export default Child;
 ```
+
+<a href="https://github.com/SoumyaSagnik/Extended-Notes/blob/main/topics/Context%20Api/readme.md">More...</a>
+
+---
+
+31. **How to handle errors in React components?**
+
+```javascript
+import { useEffect, useState } from "react";
+import { fetchDataFromApi } from "../utils/api";
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading("loading...");
+    setData(null);
+    setError(null);
+
+    fetchDataFromApi(url)
+      .then((res) => {
+        setLoading(false);
+        setData(res);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError("Something went wrong!", err);
+      });
+  }, [url]);
+
+  return { data, loading, error };
+};
+
+export default useFetch;
+```
+
+---
+
+32. **What happens when you type a URL?**
+
+- <a href="https://www.geeksforgeeks.org/what-happens-when-we-type-a-url/">Answer1</a>
+- <a href="https://aws.amazon.com/blogs/mobile/what-happens-when-you-type-a-url-into-your-browser/">Answer2</a>
+
+---
+
+33. **What is the difference between SSR and CSR? Which one is better?**
+
+**Server Side Rendering (SSR)**
+
+- In SSR, all page resources are rendered on the server rather than the browser. The server sends fully rendered HTML, CSS and JS to the client when a request is made.
+
+**Working of SSR**
+
+- The user requests for a web page in a browser.
+
+- The browser then connects to the server, which already has the pre-rendered HTML and CSS code for the page.
+
+- HTML and CSS are displayed on the user's browser, but the page is not yet interactive.
+
+- The browser then downloads the JavaScript of the page, which is available on the server.
+
+- The browser executes the JavaScript code.
+
+- The page is now fully loaded and is now interactable.
+
+**Advantages of SSR**
+
+- `Faster initial page load time`: This provides a good user experience.
+
+- `Better SEO`: Due to the faster initial load time, search engine bots can crawl and index pages better.
+
+- `Optimal for users with a slow internet connection`: They can see the rendered HTML while JS is processing.
+
+- `Excellent Social Media Optimization (SMO)`: Whenever you copy a page link and send it to others or post it on social media, `a nice preview will show up with the page title, description and image`.
+
+**Disadvantages of SSR**
+
+- `Higher server load`: The browser keeps sending requests to the server as all page resources are located on the server.
+
+- `Time consuming`: Rendering huge applications on the server can be time-consuming.
+
+- `Less interactive`: Initially the page may be visible to the users but they can't interact with it.
+
+**Client Side Rendering (CSR)**
+
+- CSR is a technique where all the page resources are rendered on the client's browser rather than the server. This is done using a JS framework that compiles and generates code at the browser-end.
+
+**Working of CSR**
+
+- The user requests for a web page in the browser.
+
+- The server/ CDN(Content Delivery Network) responds to the request with an HTML page that contains links to essential JavaScript files.
+
+- The page is not visible to the user and only a loading sign can be seen.
+
+- The browser downloads the JavaScript through the links in the HTML.
+
+- The JavaScript is then executed through the framework.
+
+- Thhe final request is sent to the server for the final render.
+
+- The user can now see and interact with the page.
+
+**Advantages of CSR**
+
+- `Faster render of subsequent pages`: The page renders quickly after the initial page load time.
+
+- `Offers quicker navigation of the website`
+
+- `Puts less load on the server`: The JavaScript is executed on the client's browser, putting less load on the server.
+
+- `More interactive`: The rendered page is interactive from the first second.
+
+**Disadvantages of CSR**
+
+- `Slower initial load`: The HTML, CSS, and JS have to be rendered first and then displayed to the user, increasing the time taken to load the initial page.
+
+- `Worse SEO than SSR`
+
+**\*SSR vs CSR**
+
+- `Page load time`: Page load time is an important metric, especially for SEO. The initial page load time in SSR is faster than in CSR. This is because in SSR, the server responds by sending pre-rendered HTML, which can be viewed by the user. In CSR, the entire code (HTML, CSS, and JS) needs to be rendered before the user can view the page.
+
+- `Caching`: Caching is a technique where important, reusable scripts are stored in the client's browser. This saves time as the cached scripts don't need to be loaded again when a user revisits the website. `CSR wins in this case`. In SSR, since the page resources lie on the server, the browser needs to send timely requests to the server.
+
+- `SEO`: SSR is better for SEO than CSR.
+
+- The best thing to use would be a combination of both SSR and CSR i.e., `SSR with hydration`.
+
+**SSR with hydration**
+
+This is a technique where the server generates the initial HTML and sends it to the client, then the client takes over and `hydrates` the static HTML into a fully interactive application. This combines the two main advantages of SSR and CSR. SSR initially so that SEO is better with less initial load time and then CSR so that the website is more interactive.
+
+---
