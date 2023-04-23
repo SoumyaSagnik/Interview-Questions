@@ -902,7 +902,7 @@ test.apply(obj, [5, 10]);
 
 ---
 
-24. What are generator functions in JavaScript?
+24. **What are generator functions in JavaScript?**
 
 - `Generators are functoins that can be exited and later re-entered.` Their context will be saved across re-entrances.
 
@@ -960,3 +960,144 @@ console.log(arrayIterator.next().value); // 2
 ```
 
 ---
+
+25. **What is closure in JavaScript?**
+
+- Function along with its lexical environment is known as closure. Lexical environment is the local memory plus the lexical environment of the parent.
+
+```javascript
+function a() {
+  const b = 10;
+  return function () {
+    console.log(b);
+  };
+}
+
+const x = a();
+x(); // 10
+```
+
+- Whenever a function is returned, it maintains its lexical environment. That is why we are able to access the variables declared inside its lexical environment even after the execution context of the function has been destroyed.
+
+---
+
+26. **Explain event loop in JavaScript.**
+
+- JavaScript is a synchronous single threaded language. It has one `call stack` inside which the code is executed, and it perform only one task at a time.
+
+- All the asynchronous activities in JS is taken out of call stack and once finished, is put into one of these two queues: `callback queue` or `microtask queue`.
+
+- All the callback functions that come through promises and mutation observer go into the microtask queue. All other callbacks are pushed to the callback queue.
+
+- The event loop is keeps a track of the `callstack`, `callback queue`, and the `microtask queue`. If it finds callbacks inside `callback queue` or `microtask queue` ready to be executed, it checks if the callstack is empty or not. As soon as the callstack is empty, the `event loop` is responsible for moving the callbacks from these two queues to the callstack, where they're finally executed.
+
+- One point to note here is that the microtask queue has higher priority than the callback queue. Hence if there are two callbacks, each in one of the two queues and the callstack is empty, the event loop will prioritize the callback in the microtask queue and push it to the callstack first.
+
+---
+
+27. **Explain Promise.all().**
+
+- `Promise.all()` is a built in JavaScript method that accepts an array of promises and returns a new promise. `Promise.all()` will wait for all the promises in the input array to be resolved before resolving the resulting promise it returns. If any of the input promises reject, the resulting promise returned by `Promise.all()` will also reject immediately.
+
+```javascript
+const p1 = new Promise((resolve) => setTimeout(() => resolve(1), 1000));
+const p2 = new Promise((resolve) => setTimeout(() => resolve(2), 2000));
+const p3 = new Promise((resolve) => setTimeout(() => resolve(3), 3000));
+
+Promise.all([p1, p2, p3]).then((value) => console.log(value)); // [1, 2, 3] after 3s
+```
+
+---
+
+28. **What are react hooks? Why should we use them?**
+
+- React hooks are functions that allow us to use React features and `stateful logic` in functional components, which are components defined as plain JavaScript functions.
+
+- React hooks can be used only with functional components. They cannot be used with class components.
+
+- React hooks consist of two types: `state` hooks and `effect` hooks. State hooks, such as `useState` allow us to add state to functional components, which were previously stateless. Effect hooks such as `useEffect` allow us to perform side effects, such as fetching data from a server, in a functional component. <a href="https://blogs-ssk.netlify.app/react-MimicLifecycle">More...</a>
+
+**Here are some reasons why we should use them**
+
+- `Simplicity`: Functional components are simpler to read and write than class components.
+
+- `Performace`: Functional components are generally faster and use less memory than class components. This is because functional components are simpler and ligher-weight than class components.
+
+- `Reusability`: Functional components can be easily reused across our application, as they don't depend on inheritance or lifecycle methods like class components do.
+
+---
+
+29. **Explain internal working of useState() hook in react.**
+
+- The `useState()` is a build-in react hook that allows us to add state to a functional component. It returns an array of two values: `the current state value` and `a function to update the state value`. It takes `initial state value` as argument.
+
+```javascript
+import { useState } from "react";
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  function handleDecrement() {
+    setCount((prevCount) => prevCount - 1);
+  }
+
+  function handleIncrement() {
+    setCount((prevCount) => prevCount + 1);
+  }
+  return (
+    <div>
+      <button onClick={handleDecrement}>Decrement</button>
+      <span>{count}</span>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+- In the above example, we have a `count` state which can be increased or decreased based in the two buttons that are rendered to the screen. **It is important to note that when the state value depends on the previous state, we should always use a function to update the state rather than updating it directly.** `setCount((prevCount) => prevCount + 1)` rather than `setCount(count + 1)`.
+
+- `useState` is asynchronous in nature. Internally, the `useState` hook uses a data structure called **`fiber`** to keep track of the state and the associated update functions. When we call the `useState()`, react creates a new fiber to represent the state and stores it in a data structure called the `fiber tree`. When the state is updated, react creates a new fiber to represent the updated state and adds it to the fiber tree. React then uses the `reconciliation` process to update the DOM.
+
+- It is important to note that `fiber tree` used in useState is different from the `virtual DOM`. useState doesn't directly use the virtual DOM.
+
+- One of the key benefits of the `fiber` data structure is that it allows react to perform updates in a more efficient and flexible way. It allows react to perform updates `asynchronously`, pause and resume updates, and prioritize updates based on their importance and complexity.
+
+- The main difference between the fiber data structure and virtual DOM is their purpose. The `fiber` data structure is used by react to `manage the rendering and updating process of components`, wherease the `virtual DOM` is used by react to `manage updates to the UI`.
+
+30. **What is context API in react?**
+
+- The Context API in react is a way to share data between components without, avoiding `prop drilling`. It is a global state management that is suited only for small applications.
+
+```javascript
+// Parent component
+
+import { createContext, useState } from "react";
+import Child from "./Child";
+
+export const AppContext = createContext(null);
+
+const Parent = () => {
+  const [name, setName] = useState("John Doe");
+  <AppContext.Provider value={{ name, setName }}>
+    <Child />
+  </AppContext.Provider>;
+};
+
+export default Parent;
+```
+
+```javascript
+// Child component
+
+import { useContext } from "react";
+import { AppContext } from "./Parent";
+
+const Child = () => {
+  const { name, setName } = useContext(AppContext);
+  return <button onClick={() => setName("Sally Taylor")}>User: {name}</button>;
+};
+
+export default Child;
+```
