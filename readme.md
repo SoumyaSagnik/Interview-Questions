@@ -1235,4 +1235,6 @@ export default useFetch;
 
 - This is a technique where the server generates the initial HTML and sends it to the client, then the client takes over and `hydrates` the static HTML into a fully interactive application. This combines the two main advantages of SSR and CSR. SSR initially so that SEO is better with less initial load time and then CSR so that the website is more interactive.
 
+- NextJS is built on SSR with hydration.
+
 ---
