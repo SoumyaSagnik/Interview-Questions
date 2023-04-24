@@ -1238,3 +1238,52 @@ export default useFetch;
 - NextJS is built on SSR with hydration.
 
 ---
+
+34. **Write polyfills for map, filter and reduce**.
+
+**Map**
+
+```javascript
+Array.prototype.myMap = function (cb) {
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(cb(this[i], i, this));
+  }
+  return result;
+};
+
+console.log([1, 2, 3].myMap((n) => n * n));
+```
+
+**Filter**
+
+```javascript
+Array.prototype.myFilter = function (cb) {
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this)) {
+      result.push(this[i]);
+    }
+  }
+  return result;
+};
+
+console.log([1, 2, 3, 4, 5, 6].myFilter((n) => n % 2 === 0));
+```
+
+**Reduce**
+
+```javascript
+Array.prototype.myReduce = function (cb, initial) {
+  let accumulator = initial ?? this[0];
+  for (let i = 0; i < this.length; i++) {
+    accumulator = cb(accumulator, this[i], i, this);
+  }
+
+  return accumulator;
+};
+
+console.log([1, 2, 3].myReduce((total, n) => total + n, 0));
+```
+
+---
