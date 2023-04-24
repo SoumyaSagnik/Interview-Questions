@@ -1355,3 +1355,76 @@ const misc = students
 ```
 
 ---
+
+37. **Give an example of private function in JavaScript**
+
+```javascript
+class BankAccount {
+  name = "John Doe";
+  #accNo = 12345;
+  #pin = 6969;
+  #balance = "10000";
+
+  #isUserAuthorized(accNo, pin) {
+    return accNo === this.#accNo && pin === this.#pin;
+  }
+
+  getBalance(accNo, pin) {
+    if (this.#isUserAuthorized(accNo, pin)) return this.#balance;
+    return "Not Authorized";
+  }
+}
+
+const acc = new BankAccount();
+console.log(acc.getBalance(12345, 6969)); // 10000
+console.log(acc.getBalance(1, 2)); // Not Authorized
+```
+
+---
+
+38. **Give code example of getters and setters in JavaScript**
+
+```javascript
+class Student {
+  #name;
+  #rollNo;
+
+  constructor(name, rollNo) {
+    this.#name = name;
+    this.#rollNo = rollNo;
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  setName(name) {
+    this.#name = name;
+  }
+
+  getRollNo() {
+    return this.#rollNo;
+  }
+
+  setRollNo(rollNo) {
+    this.#rollNo = rollNo;
+  }
+
+  getDetails() {
+    return [this.#name, this.#rollNo];
+  }
+}
+
+const s1 = new Student();
+const s2 = new Student("Sally Taylor", 16);
+
+console.log(s1); // {#name: undefined, #rollNo: undefined}
+console.log(s2); // {#name: 'Sally Taylor', #rollNo: 16}
+
+s1.setName("John Doe");
+s1.setRollNo(168);
+
+console.log(s1.getName()); // John Doe
+console.log(s1.getRollNo()); // 168
+console.log(s1.getDetails()); // ['John Doe', 168]
+```
