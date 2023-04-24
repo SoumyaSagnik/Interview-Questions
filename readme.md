@@ -1287,3 +1287,71 @@ console.log([1, 2, 3].myReduce((total, n) => total + n, 0));
 ```
 
 ---
+
+35. **Differentiate between map and forEach. Also write similarity.**
+
+**Difference**
+
+- map returns a new array, while forEach doesn't return anything.
+
+- since map returns a new array, we can change other array methods to the result of a map. This is not possible in case of forEach.
+
+**Similarity**
+
+- both map and forEach are higher order functions.
+
+- `both map and forEach don't change the original array`. many people say that forEach can change the original array but map cannot. Well they use the callback function passed to change the array. Even map can change the original array in that way.
+
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [1, 2, 3];
+
+// map
+arr1.map((n) => n * n);
+console.log(arr1); // [1, 2, 3]
+arr1.map((n, i, ar) => (ar[i] = n * n));
+console.log(arr1); // [1, 4, 9]
+
+// forEach
+arr2.forEach((n) => n * n);
+console.log(arr2); // [1, 2, 3]
+arr2.forEach((n, i, ar) => (ar[i] = n * n));
+console.log(arr2); // [1, 4, 9]
+```
+
+---
+
+36. **Problems based on map, filter, and reduce**
+
+```javascript
+let students = [
+  { name: "Piyush", rollNumber: 31, marks: 80 },
+  { name: "Jenny", rollNumber: 15, marks: 69 },
+  { name: "Kaushal", rollNumber: 16, marks: 35 },
+  { name: "Dilpreet", rollNumber: 7, marks: 55 },
+];
+
+// return only names in caps
+const capitalizedNamesOnly = students.map((student) =>
+  student.name.toUpperCase()
+);
+
+// return details of students who scored more than 60 marks
+const greaterThanSixty = students.filter((student) => student.marks > 60);
+
+// return sum of marks of all the students
+const marksSum = students.reduce((total, student) => total + student.marks, 0);
+
+// return names of students who scored more than 60
+const namesGreaterThanSixty = students
+  .filter((student) => student.marks > 60)
+  .map((student) => student.name);
+
+// return total marks for students with marks greater than 60 after 20 marks have been added to those who scored less than 60
+const misc = students
+  .map((student) => (student.marks < 60 ? student.marks + 20 : student.marks))
+  .filter((mark) => mark > 60)
+  .reduce((total, mark) => total + mark, 0);
+```
+
+---
