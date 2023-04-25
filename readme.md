@@ -1622,3 +1622,41 @@ function throttle(cb, delay) {
   };
 }
 ```
+
+---
+
+46. **What is currying in JavaScript?**
+
+- Currying is a technique to transform a function that takes multiple arguments into a sequence of functions that takes one or more than one arguments. The curried functions can be called one after another to gradually build up the original function's arguments.
+
+**Currying using bind**
+
+```javascript
+function multiply(x, y) {
+  console.log(x * y);
+}
+
+const multiplyByTwo = multiply.bind(this, 2);
+multiplyByTwo(5); // 10
+
+const multiplyByThree = multiply.bind(this, 3);
+multiplyByThree(5); // 15
+```
+
+**Currying using closure**
+
+```javascript
+function multiply(x) {
+  return function (y) {
+    console.log(x * y);
+  };
+}
+
+const multiplyByTwo = multiply(2);
+multiplyByTwo(5); // 10
+
+const multiplyByThree = multiply(3);
+multiplyByThree(5); // 15
+```
+
+---
