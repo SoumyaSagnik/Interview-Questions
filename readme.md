@@ -1754,7 +1754,7 @@ function sum(a, b) {
 
 - `Authentication`: When a user logs in to a web application, the server verifies the user's credentials and generates a JWT. The JWT contains information about the user and is signed with a secret key that only the server knows.
 
-- `Token`: The JWT token consists of three parts: `header`, `payload`, and `signature`. The header contains information about the algorithm used to sign the token. The payload contains the data that is being transmitted. The signature is used to verify that the token has not been tampered with.
+- `Token`: The JWT token consists of three parts: `header`, `payload`, and `signature`. The header contains information about the algorithm used to sign the token. The payload contains the data that is being transmitted (such as used ID and permissions). The signature is used to verify that the token has not been tampered with.
 
 - `Transmission`: The JWT is then sent to the client, typically in an HTTP Authorization header, and the client stores the token in local storage or cookie.
 
@@ -1763,3 +1763,105 @@ function sum(a, b) {
 - `Expiration`: JWTs can also have an expiration time, after which the token becomes invalid. This helps to prevent unauthorized access to protected resources.
 
 _In summary, JWTs provide a secure way to transmit information between parties by using a signed token that contains a payload of information. The token is used to authenticate and authorize users and can have an expiration time to prevent unauthorized access._
+
+---
+
+53. **What are the different ddatatypes in JavaScript?**
+
+- There are `8` basic data types in JavaScript:
+
+- `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, `object`, `bigint`.
+
+---
+
+54. **What is the difference between null and undefined?**
+
+| null                                                         | undefined                                                        |
+| ------------------------------------------------------------ | ---------------------------------------------------------------- |
+| It means variable points to no object                        | It means variable has been declared but not yet assigned a value |
+| Type of null is object                                       | Type of undefined is undefined                                   |
+| It is converted to `0` while performing primitive operations | It is converted to `Nan` while performing primitive operations.  |
+
+---
+
+55. **Output Questions**
+
+```javascript
+const array1 = [1, 2, 3, 4, 5];
+for (var i = 0; i < array1.length; i++) {
+  console.log(array1[i]);
+  setTimeout(() => {
+    console.log(i);
+    console.log(array1[i]);
+  }, 100);
+}
+
+// output
+1;
+2;
+3;
+4;
+5;
+5;
+undefined;
+5;
+undefined;
+5;
+undefined;
+5;
+undefined;
+5;
+undefined;
+```
+
+```javascript
+console.log(null == undefined); // true
+console.log(null == 0); // false
+console.log(null < 0); // false
+console.log(null > 0); // false
+console.log(null <= 0); // true
+console.log(null >= 0); // true
+console.log(undefined == 0); //false
+console.log(undefined < 0); // false
+console.log(undefined > 0); // false
+console.log(undefined <= 0); // false
+console.log(undefined >= 0); // false
+console.log(null === undefined); // false
+console.log(0 == false); // true
+console.log(0 === false); // false
+console.log(1 == "1"); // true
+console.log(1 === "1"); // false
+```
+
+---
+
+56. **What's the difference between a function and a method in JavaScript?**
+
+```javascript
+// function
+function hello() {
+  console.log("function");
+}
+
+// method
+const obj = {
+  a: function () {
+    console.log("method");
+  },
+};
+```
+
+---
+
+57. **What is an event flow in JavaScript?**
+
+- Event flow is the order in which event is received on the web page.
+  _There are two possibilities:_
+
+- `Event Bubbling` (Bottom to Top): event first triggers on the innermost target element, and then successive triggers on the ancestors, till it reaches the outermost DOM element.
+
+- `Event Capturing` (Top to Bottom): event is first captured on the outermost element, and then successive triggers on the descendants, till it reaches the innermost DOM element.
+
+- `The stopPropagation` method is used to stop the event from bubbling up the event chain.
+
+---
