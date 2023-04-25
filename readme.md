@@ -1557,6 +1557,17 @@ console.log(7 > 6 > 5); // false
 // becase true < 7 is true but true > 7 is false.
 ```
 
+```javascript
+function add(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+console.log(add(1)(4)(3)); // 8
+```
+
 44. **What is prototype and prototypal inheritance?**
 
 - In JavaScript, every object has a prototype object, which is either null or another object. _The prototype object is essentially a blueprint for creating new objects that share common functionality._
@@ -1578,3 +1589,36 @@ console.log(obj.c); // 45
 ```
 
 ---
+
+45. **Implement debounce and throttle in JavaScript**
+
+**Debounce**
+
+```javascript
+function debounce(cb, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      cb(...args);
+    }, delay);
+  };
+}
+```
+
+**Throttle**
+
+```javascript
+function throttle(cb, delay) {
+  let firstTime = true;
+  return (...args) => {
+    if (firstTime) {
+      cb(...args);
+      firstTime = false;
+      setTimeout(() => {
+        firstTime = true;
+      }, delay);
+    }
+  };
+}
+```
