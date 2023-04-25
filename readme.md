@@ -1701,3 +1701,21 @@ const output = arr.reduce((acc, num) => {
 
 console.log(output); // {1 => 3, 2 => 3, 3 => 3, 4 => 1}
 ```
+
+---
+
+49. **Given an array. Flatten it.**
+
+```javascript
+const arr = [1, [1, 2, [1, [1], 2], 3], 3, 4];
+
+function flattenArray(arr) {
+  return arr.reduce((acc, num) => {
+    return Array.isArray(num) ? acc.concat(flattenArray(num)) : acc.concat(num);
+  }, []);
+}
+
+console.log(flattenArray(arr)); // [1, 1, 2, 1, 1, 2, 3, 3, 4]
+```
+
+--
