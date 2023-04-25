@@ -1865,3 +1865,138 @@ const obj = {
 - `The stopPropagation` method is used to stop the event from bubbling up the event chain.
 
 ---
+
+58. **Create a modal as follows:**
+
+- **Create a button, when it's clicked a modal should open with transparent black overlay.**
+- **the modal should have a close modal button (X), which upon clicking closes the modal.**
+- **the modal content should be horizontally and vertically centered.**
+- **the modal should also be closed when the overlay of the modal is clicked.**
+- **the modal can had large amount of text. Make is such so if the text amount is huge, it doesn't overflow.**
+- **Add a modal title which should be fixed at the top, and add a modal footer which should be fixed to the bottom all while the content of the modal is scrollabe.**
+
+_**JavaScript Solution**_
+
+**HTML**
+
+```html
+<body>
+  <div class="overlay"></div>
+  <button id="open">Open Modal</button>
+  <div class="modal">
+    <header>
+      <h2>Header</h2>
+      <button id="close">&times;</button>
+    </header>
+    <section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quibusdam
+      deleniti saepe facilis magnam? Fugiat ipsa aperiam eveniet excepturi
+      sapiente quos molestiae, assumenda praesentium nostrum voluptatibus,
+      nesciunt ea. Modi cum doloribus inventore ad, debitis error, blanditiis
+      quaerat iusto cupiditate libero voluptatum magni eum commodi quibusdam
+      ipsam omnis optio esse consectetur qui labore voluptate dolores mollitia
+      voluptatibus. Quae fugit ratione quod nisi aperiam fugiat ipsa, eveniet
+      reiciendis quos laboriosam, maiores nobis quaerat nam atque incidunt
+      autem. Placeat iusto minus earum dolorem iure. Illo perferendis ullam
+      laudantium minima officiis porro, sequi ratione optio veritatis corporis
+      quia dolor voluptatem cum nostrum iusto fugiat!
+    </section>
+    <footer></footer>
+  </div>
+</body>
+```
+
+**CSS**
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.overlay {
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  max-width: 95vw;
+  border: 0.1rem solid black;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  max-height: 20rem;
+  z-index: 5;
+  transition: all 0.3s;
+  scale: 0;
+}
+
+.modal > header {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding: 0 0.25rem;
+}
+
+.modal > header > button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal > section {
+  padding: 1rem 0.5rem 0.5rem 0.25rem;
+  overflow-y: auto;
+  background-color: bisque;
+}
+
+.modal > footer {
+  background-color: black;
+  height: 1.75rem;
+}
+
+#open {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+```
+
+**JS**
+
+```javascript
+const modal = document.querySelector(".modal");
+const openButton = document.querySelector("#open");
+const overlay = document.querySelector(".overlay");
+const modalCloseButton = document.querySelector("#close");
+
+openButton.addEventListener("click", () => {
+  modal.style.scale = 1;
+  overlay.style.display = "block";
+});
+
+modalCloseButton.addEventListener("click", () => {
+  modal.style.scale = 0;
+  overlay.style.display = "none";
+});
+
+overlay.addEventListener("click", () => {
+  modal.style.scale = 0;
+  overlay.style.display = "none";
+});
+```
