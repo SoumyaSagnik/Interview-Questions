@@ -1660,3 +1660,44 @@ multiplyByThree(5); // 15
 ```
 
 ---
+
+47. **Given an array of numbers. Return an array that has at max 2 same numbers, if any. Example:**
+
+_Input: [1,1,1,2,2,2,3,3,3,4] Output: [1,1,2,2,3,3,4]_
+
+```javascript
+const arr = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4];
+const map = new Map();
+
+const output = arr.reduce((acc, num) => {
+  let freq = map.get(num) ?? 0;
+  if (freq < 2) {
+    acc.push(num);
+    map.set(num, freq + 1);
+  }
+
+  return acc;
+}, []);
+
+console.log(output);
+```
+
+---
+
+48. **Given an array of numbers. Return an object having numbers as keys and their frequency as values.**
+
+```javascript
+const arr = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4];
+
+const output = arr.reduce((acc, num) => {
+  if (acc.has(num)) {
+    acc.set(num, acc.get(num) + 1);
+  } else {
+    acc.set(num, 1);
+  }
+
+  return acc;
+}, new Map());
+
+console.log(output); // {1 => 3, 2 => 3, 3 => 3, 4 => 1}
+```
