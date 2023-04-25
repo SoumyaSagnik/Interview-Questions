@@ -1718,4 +1718,48 @@ function flattenArray(arr) {
 console.log(flattenArray(arr)); // [1, 1, 2, 1, 1, 2, 3, 3, 4]
 ```
 
---
+---
+
+50. **Name some functional programming concepts that you use.**
+
+- `Pure functions`: A pure function is a function that always returns the same output for a given input and has no side effects. It does not modify any variables outside of its scope and doesn't rely on variables outside of its scope.
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- `Immutability`: Immutability means data tha cannot be changed once it has been created. Instead of modifying an existing object, new objects are created with the desired changes.
+
+- `Higher Order Functions`: A higher order function is one which takes another function as argument, or returns another function, or both. Eg: `map`, `filter`, `reduce`.
+
+---
+
+51. **Differentiate between local storage, session storage, and cookies.**
+
+- `Local Storage`: It is a key value storage that allows you to store data in a user's browser without an expiration date. This means that the data stored in local storage persists even after the browser is closed or the computer is restarted. The data is specific to a domain and can be accessed by scripts from that domain.
+
+- `Session Storage`: Data stored in sessionStorage is tied to a specific session. THis means that the data is lost when the browser is closed. The data is specific to a domain and can only be accessed by scripts from that domain.
+
+- `Cookies`: Cookies are small pieces of data that are stored in a user's browser and are sent to the server with each request. Cookies can be used to store data that persists across multiple sessions or to track user behavior. Cookies have an expiration date, and their lifespan can be set by the server.
+
+---
+
+52. **What is JWT? How does it work?**
+
+- JWT stands for `JSON Web Tokens`. It is an open standard for securely transmitting information between parties as a JSON object. JWTs are often used for authenticatino and authorization purposes.
+
+**Here's how it works:**
+
+- `Authentication`: When a user logs in to a web application, the server verifies the user's credentials and generates a JWT. The JWT contains information about the user and is signed with a secret key that only the server knows.
+
+- `Token`: The JWT token consists of three parts: `header`, `payload`, and `signature`. The header contains information about the algorithm used to sign the token. The payload contains the data that is being transmitted. The signature is used to verify that the token has not been tampered with.
+
+- `Transmission`: The JWT is then sent to the client, typically in an HTTP Authorization header, and the client stores the token in local storage or cookie.
+
+- `Authorization`: Whenever the user needs to access a protected resource, the client sends the JWT to the server as part of the request. The server then verifies the token's signature and decodes the payload to determine whether the user has necessary permissions to access the resource.
+
+- `Expiration`: JWTs can also have an expiration time, after which the token becomes invalid. This helps to prevent unauthorized access to protected resources.
+
+_In summary, JWTs provide a secure way to transmit information between parties by using a signed token that contains a payload of information. The token is used to authenticate and authorize users and can have an expiration time to prevent unauthorized access._
