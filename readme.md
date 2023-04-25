@@ -1428,3 +1428,153 @@ console.log(s1.getName()); // John Doe
 console.log(s1.getRollNo()); // 168
 console.log(s1.getDetails()); // ['John Doe', 168]
 ```
+
+39. **Deep cloning vs Shallow cloning in JavaScript.**
+
+```javascript
+const obj1 = { a: 10, b: 20 };
+const obj2 = { a: 100, b: 200 };
+
+const clone1 = obj1; // Shallow Clone
+const clone2 = { ...obj2 }; // Deep Clone
+
+console.log(clone1); // {a: 10, b: 20}
+console.log(clone2); // {a: 100, b: 200}
+
+clone1.a = 20;
+console.log(clone1); // {a: 20, b: 20}
+console.log(obj1); // {a: 20, b: 20}
+
+clone2.a = 69;
+console.log(clone2); // {a: 69, b: 200}
+console.log(obj2); // {a: 100, b: 200}
+```
+
+Shallow clone merely points to the original object's location.
+Deep clone creates a new object with same values.
+
+---
+
+40. **How to know if a browser can execute JavaScript**.
+
+```html
+<noscript>Your browser does not support JavaScript!</noscript>
+```
+
+The content inside the `noscript` tag will only be displayed if the browser does not support JavaScript, or if the user has disabled it.
+
+---
+
+41. **What is strict mode in JavaScript?**
+
+- Strict mode in JavaScript is a way to enforce stricter rules and best practices in code, which can help catch common coding mistakes and prevent certain types of bugs.
+
+- For example, strict mode disables the use of undeclared variables.
+
+- By default modern browsers including chrome run javascript in strict mode. When you use a developer console to run code, please note that it doesn’t use strict by default.
+
+**Checking if JS is in strict mode or not**
+
+```javascript
+(function () {
+  console.log(this);
+})();
+```
+
+The above code will log `undefined` if in strict mode, else `window` in case of browsers.
+
+**Adding strict mode manually**
+
+```javascript
+"use strict";
+(function () {
+  console.log(this); // undefined
+})();
+```
+
+---
+
+42. **What is a PWA?**
+
+- `Progressive Web Apps` (PWA) are web applications that are designed to provide a user experience that is similar to native mobile apps. PWAs can be accessed through a web browser, but they can also be installed on the user's device and accessed from the home screen, just like a native app.
+
+**Benefits of PWAs are listed below:**
+
+- `Offline functionality`: PWAs can work offline.
+
+- `App-like experience`: PWAs prove a user experience that is similar to native apps, with features like push notifications and the ability to be installed on the home screen.
+
+- `Fast performance`: PWAs are designed to be fast and responsive, providing a smooth and seamless user experience.
+
+- `Cross-platform compatibility`: PWAs can run on any device, with a modern web browser, including desktops, laptops, tablets, smartphones, etc.
+
+---
+
+43. **Output based questions**
+
+```javascript
+var a = 10;
+var b;
+console.log(a); // 10
+console.log(b); // undefined
+function display() {
+  var x = 5;
+  console.log(x);
+}
+display(); // 5
+```
+
+```javascript
+console.log(a); // undefined
+console.log(b); // undefined
+display(); // 5
+var a = 10;
+var b;
+function display() {
+  var x = 5;
+  console.log(x);
+}
+display(); // 5
+```
+
+```javascript
+console.log(a);
+console.log(b);
+var a = 10;
+function display() {
+  var x = 5;
+  console.log(x);
+}
+console.log(a);
+
+// ReferenceError: b is not defined
+```
+
+```javascript
+console.log(5 < 6 < 7); // true
+console.log(7 > 6 > 5); // false
+
+// becase true < 7 is true but true > 7 is false.
+```
+
+44. **What is prototype and prototypal inheritance?**
+
+- In JavaScript, every object has a prototype object, which is either null or another object. _The prototype object is essentially a blueprint for creating new objects that share common functionality._
+
+- **When a new object is created in JavaScript, it autmatically inherits properties and methods of its prototype object. This is known as `prototypal inheritance`.**
+
+- When a property or method is accessed on an object, JavaScript first looks for that property or method on the object itself. If it is not found, JS looks for it on the object's prototype, and then on the prototype's prototype, and so on until it is found or until the end of the prototype chain is reached.
+
+```javascript
+const obj = {
+  a: 10,
+  b: 20,
+};
+
+obj.__proto__ = { a: 15, b: 30, c: 45 };
+console.log(obj.c); // 45
+
+// This is just a demonstration, it's not a good practice!
+```
+
+---
