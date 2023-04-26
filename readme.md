@@ -2052,3 +2052,79 @@ function setupHelp() {
 }
 setupHelp();
 ```
+
+---
+
+60. **Create a list as shown below in react.**
+<p align="center"><img src="./images/li-react.png" /></p>
+
+- Color should change to red on click.
+- Color should change back to black on another click.
+- List is given below:
+
+```javascript
+let items = [
+  {
+    id: 1,
+    name: "do work",
+  },
+  {
+    id: 2,
+    name: "do grocery",
+  },
+  {
+    id: 3,
+    name: "go gym",
+  },
+];
+```
+
+**Solution**
+
+```javascript
+import { useState } from "react";
+import "./App.css";
+
+let items = [
+  {
+    id: 1,
+    name: "do work",
+  },
+  {
+    id: 2,
+    name: "do grocery",
+  },
+  {
+    id: 3,
+    name: "go gym",
+  },
+];
+
+const App = () => {
+  const [isItemActive, setIsItemActive] = useState(
+    new Array(items.length).fill(false)
+  );
+  function handleClick(index) {
+    const newList = [...isItemActive];
+    newList[index] = !newList[index];
+    setIsItemActive(newList);
+  }
+  return (
+    <ul>
+      {items.map((item, index) => {
+        return (
+          <li
+            key={item.id}
+            onClick={() => handleClick(index)}
+            style={{ color: isItemActive[index] ? "red" : "black" }}
+          >
+            {item.name}
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default App;
+```
