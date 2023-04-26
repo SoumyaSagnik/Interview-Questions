@@ -2128,3 +2128,21 @@ const App = () => {
 
 export default App;
 ```
+
+---
+
+61. **What's the difference between opacity:0, visibility:hidden, and display:none ?**
+
+- `opacity:0` : this will make the element transparent. You cannot see it, but you can interact with it. It takes up space.
+
+- `visibllity:hidden`: this is a combination of opacity:0 and pointer-events:none. In other words, you cannot see it or interact with it. However, it takes up space.
+
+- `display:none`: this removes the element from the layout, hence the element doesn't take up space. You cannot see it or iteract with it.
+
+| opacity:0                        | visibility:hidden                | display:none                         |
+| -------------------------------- | -------------------------------- | ------------------------------------ |
+| element takes up space           | element takes up sapce           | element doesn't take any space       |
+| element is interactable          | element is not interactable      | element is not interactable          |
+| element is present in the layout | element is present in the layout | element is not present in the layout |
+
+---
