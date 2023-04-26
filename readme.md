@@ -2146,3 +2146,20 @@ export default App;
 | element is present in the layout | element is present in the layout | element is not present in the layout |
 
 ---
+
+62. **Create a triangle in CSS**
+
+```css
+div {
+  box-sizing: border-box;
+  margin-left: 45%;
+  height: 0;
+  width: 0;
+  border-top: 5rem solid transparent;
+  border-bottom: 5rem solid transparent;
+  border-right: 5rem solid yellow;
+  rotate: 90deg;
+}
+```
+
+---
