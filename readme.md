@@ -1586,6 +1586,21 @@ console.log("end");
 `start``1``end``2`;
 ```
 
+```javascript
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+const obj2 = {
+  ...obj,
+  a: 0,
+};
+
+console.log(obj2.a, obj2.b); // 0 2
+```
+
 ---
 
 44. **What is prototype and prototypal inheritance?**
