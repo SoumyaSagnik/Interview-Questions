@@ -1568,6 +1568,26 @@ function add(a) {
 console.log(add(1)(4)(3)); // 8
 ```
 
+```javascript
+console.log("start");
+
+const promise1 = new Promise((resolve, reject) => {
+  console.log(1);
+  resolve(2);
+});
+
+promise1.then((res) => {
+  console.log(res);
+});
+
+console.log("end");
+
+// Output
+`start``1``end``2`;
+```
+
+---
+
 44. **What is prototype and prototypal inheritance?**
 
 - In JavaScript, every object has a prototype object, which is either null or another object. _The prototype object is essentially a blueprint for creating new objects that share common functionality._
