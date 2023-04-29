@@ -2198,3 +2198,10 @@ div {
 ```
 
 ---
+
+63. **Differentiate between Babel and Webpack.**
+
+| Babel                                                                                                                                            | Webpack                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Babel is a JavaScript compiler that is used to convert ES6+ code into backwards compatible version of JavaScript that can run on older browsers. | Webpack is a module bundler that is used to package multiple JavaScript files and their dependencies into a single file or a set of files that can be loaded by a web browser. |
+| Babel is focused on transpiling JavaScript code to make it compatible with different environments.                                               | Webpack is focused on bundling and optimizing JavaScript code for efficient delivery to the browser.                                                                           |
