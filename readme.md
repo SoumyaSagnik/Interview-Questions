@@ -32,7 +32,7 @@
 
 ---
 
-3. **What is SCSS? How is it different from CSS? How does it get transpired to CSS?**
+3. **What is SCSS? How is it different from CSS? How does it get transpired to CSS?** <span style="color:yellow">[Flipkart]</span>
 
 - SCSS (Sassy CSS) is a CSS `preprocessor` that adds functionality features to CSS. Differences are listed below:
 
@@ -81,6 +81,7 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 ---
 
 5. **Explain CSS Specificity.**
+   <span style="color:yellow">[Flipkart]</span>
 
 - In CSS, specificity is the measure of how specific a selector is in selecting an element or group of elements on a web page. Specificity is determined by the number and type of selectors used in the CSS rule, `and it determines which CSS rule is applied to an element when multiple rules target the same element`.
 
@@ -255,6 +256,7 @@ let a = 10;
 ---
 
 8. **What is a Promise? What is Promsie Chain?**
+   <span style="color:yellow">[Flipkart]</span>
 
 `Promise`
 
@@ -573,6 +575,7 @@ export default PureComponent;
 ---
 
 14. **What is the virtual dom in react?**
+    <span style="color:yellow">[Thinkify]</span>
 
 - React maintains a clone of the real DOM (Document Object Model) which is called the virtual DOM. Whenever there's an update, react creates a new version of the virtual DOM.
 
@@ -583,6 +586,7 @@ export default PureComponent;
 ---
 
 15. **What are the lifecycle methods in a class component?**
+    <span style="color:yellow">[Flipkart]</span>
 
 - We can mainly classify the methods into four phases: `Mounting` `Updating` `Unmounting` `Error Handling`.
 
@@ -609,6 +613,7 @@ export default PureComponent;
 ---
 
 17. **What is the `this` keyword in JavaScript?**
+    <span style="color:yellow">[Thinkify]</span>
 
 - The `this` keyword in JavaScript referes to the object that is currently executing the code. At the global level, this points to the global object, which is `window` in case of browsers.
 
@@ -673,6 +678,7 @@ const checker = new Check();
 ---
 
 20. **Explain the box model in CSS.**
+    <span style="color:yellow">[Flipkart]</span>
 
 - The box model has four parts: `Content` `Padding` `Border` `Margin`
 
@@ -687,6 +693,7 @@ const checker = new Check();
 ---
 
 21. **Explain box-sizing property in CSS.**
+    <span style="color:yellow">[Flipkart]</span>
 
 - The `box-sizing` property controls how the `total size of an element is calculated`, including its content, padding, and border. The possible values for box-sizing are:
 
@@ -697,6 +704,7 @@ const checker = new Check();
 ---
 
 22. **What are the call, bind, and apply methods in JavaScript? Differentiate between them.**
+    <span style="color:yellow">[Flipkart]</span>
 
 - `call` `bind` and `apply` are used to manipulate the `this` keyword and pass arguments to functions in different ways.
 
@@ -962,6 +970,7 @@ console.log(arrayIterator.next().value); // 2
 ---
 
 25. **What is closure in JavaScript?**
+    <span style="color:yellow">[Thinkify, Flipkart, Landmark Group]</span>
 
 - Function along with its lexical environment is known as closure. Lexical environment is the local memory plus the lexical environment of the parent.
 
@@ -982,6 +991,7 @@ x(); // 10
 ---
 
 26. **Explain event loop in JavaScript.**
+    <span style="color:yellow">[Flipkart]</span>
 
 - JavaScript is a synchronous single threaded language. It has one `call stack` inside which the code is executed, and it perform only one task at a time.
 
@@ -996,6 +1006,7 @@ x(); // 10
 ---
 
 27. **Explain Promise.all().**
+    <span style="color:yellow">[Thinkify]</span>
 
 - `Promise.all()` is a built in JavaScript method that accepts an array of promises and returns a new promise. `Promise.all()` will wait for all the promises in the input array to be resolved before resolving the resulting promise it returns. If any of the input promises reject, the resulting promise returned by `Promise.all()` will also reject immediately.
 
@@ -1432,6 +1443,7 @@ console.log(s1.getDetails()); // ['John Doe', 168]
 ```
 
 39. **Deep cloning vs Shallow cloning in JavaScript.**
+    <span style="color:yellow">[Flipkart]</span>
 
 ```javascript
 const obj1 = { a: 10, b: 20 };
@@ -1606,6 +1618,7 @@ console.log(obj2.a, obj2.b); // 0 2
 ---
 
 44. **What is prototype and prototypal inheritance?**
+    <span style="color:yellow">[Flipkart]</span>
 
 - In JavaScript, every object has a prototype object, which is either null or another object. _The prototype object is essentially a blueprint for creating new objects that share common functionality._
 
@@ -1803,7 +1816,7 @@ _In summary, JWTs provide a secure way to transmit information between parties b
 
 ---
 
-53. **What are the different ddatatypes in JavaScript?**
+53. **What are the different datatypes in JavaScript?**
 
 - There are `8` basic data types in JavaScript:
 
@@ -2041,6 +2054,7 @@ overlay.addEventListener("click", () => {
 ---
 
 59. **What will be the output of this? How will you fix this code?**
+    <span style="color:yellow">[Flipkart]</span>
 
 ```javascript
 function showHelp(help) {
@@ -2093,6 +2107,7 @@ setupHelp();
 ---
 
 60. **Create a list as shown below in react.**
+<span style="color:yellow">[Flipkart]</span>
 <p align="center"><img src="./images/li-react.png" /></p>
 
 - Color should change to red on click.
@@ -2202,6 +2217,7 @@ div {
 ---
 
 63. **Differentiate between Babel and Webpack.**
+    <span style="color:yellow">[Flipkart]</span>
 
 | Babel                                                                                                                                            | Webpack                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
