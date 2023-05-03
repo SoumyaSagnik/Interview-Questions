@@ -1066,6 +1066,8 @@ export default App;
 
 - The main difference between the fiber data structure and virtual DOM is their purpose. The `fiber` data structure is used by react to `manage the rendering and updating process of components`, wherease the `virtual DOM` is used by react to `manage updates to the UI`.
 
+---
+
 30. **What is context API in react?**
 
 - The Context API in react is a way to share data between components without, avoiding `prop drilling`. It is a global state management that is suited only for small applications.
