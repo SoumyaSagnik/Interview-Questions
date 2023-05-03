@@ -1,10 +1,10 @@
 # Frontend Interview Questions
 
-`HTML` `CSS` `JavaScript` `React`
+## [HTML/CSS](#html_css) &nbsp;&nbsp;&nbsp; [JavaScript](#js) &nbsp;&nbsp;&nbsp; [React](#react) &nbsp;&nbsp;&nbsp; [General](#general)
 
 ### Recommendation: watch <a href="https://www.youtube.com/watch?v=pN6jk0uUrD8&list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&ab_channel=AkshaySaini">Namaste JavaScript</a> or read my <a href="https://blogs-ssk.netlify.app/">Blogs</a> before proceeding.
 
-## HTML/CSS
+## <a id="html_css">HTML/CSS</a>
 
 1. **What is div vs span or block vs inline?**
 
@@ -220,19 +220,9 @@ div {
 
 ---
 
-14. **Differentiate between Babel and Webpack.**
-    <span style="color:yellow">[Flipkart]</span>
+## <a id="js">JavaScript</a>
 
-| Babel                                                                                                                                            | Webpack                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Babel is a JavaScript compiler that is used to convert ES6+ code into backwards compatible version of JavaScript that can run on older browsers. | Webpack is a module bundler that is used to package multiple JavaScript files and their dependencies into a single file or a set of files that can be loaded by a web browser. |
-| Babel is focused on transpiling JavaScript code to make it compatible with different environments.                                               | Webpack is focused on bundling and optimizing JavaScript code for efficient delivery to the browser.                                                                           |
-
----
-
-## JavaScript
-
-15. **Differentiate between let, var, and const.**
+1. **Differentiate between let, var, and const.**
 
 - `Scope`: let and const are block scoped, while var is function scoped.
 
@@ -376,8 +366,8 @@ let a = 10;
 
 ---
 
-16. **What is a Promise? What is Promsie Chain?**
-    <span style="color:yellow">[Flipkart]</span>
+2. **What is a Promise? What is Promsie Chain?**
+   <span style="color:yellow">[Flipkart]</span>
 
 `Promise`
 
@@ -456,7 +446,7 @@ function promiseChain(data) {
 
 ---
 
-17. **Output Questions**
+3. **Output Questions**
 
 ```javascript
 function promisify(number, increase) {
@@ -539,7 +529,7 @@ to be put to the callstack for execution.
 
 ---
 
-18. **If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?**
+4. **If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?**
 
 - The `promise` will be given `priority` over the `setTimeout` function. In JavaScript, the event loop is responsible for managing the call stack, callback queue and the microtask queue. Promises and operations from mutation observer go to the microtask queue while all other asynchronous operations are passed to the callback queue till they're ready to be executed in the callstack.
 
@@ -549,8 +539,8 @@ to be put to the callstack for execution.
 
 ---
 
-19. **What is the `this` keyword in JavaScript?**
-    <span style="color:yellow">[Thinkify]</span>
+5. **What is the `this` keyword in JavaScript?**
+   <span style="color:yellow">[Thinkify]</span>
 
 - The `this` keyword in JavaScript referes to the object that is currently executing the code. At the global level, this points to the global object, which is `window` in case of browsers.
 
@@ -580,8 +570,8 @@ const checker = new Check();
 
 ---
 
-20. **What are the call, bind, and apply methods in JavaScript? Differentiate between them.**
-    <span style="color:yellow">[Flipkart]</span>
+6. **What are the call, bind, and apply methods in JavaScript? Differentiate between them.**
+   <span style="color:yellow">[Flipkart]</span>
 
 - `call` `bind` and `apply` are used to manipulate the `this` keyword and pass arguments to functions in different ways.
 
@@ -707,7 +697,7 @@ console.log(participant3.battery); // 55
 
 ---
 
-21. **What is polyfill in JavaScript? Write polyfill for call, bind, and apply.**
+7. **What is polyfill in JavaScript? Write polyfill for call, bind, and apply.**
 
 - Polyfill is a piece of code that provides functionality that is not natively available in the current version of a browser or JS engine. Polyfills are commonly used to implement new web standards or features that have been added to JS but are not yet widely supported by all web browsers. For example, if a new JavaScript method is introduced in the latest version of the language, but older browsers do not support it, a polyfill can be written to add support for the new method in those older browsers.
 
@@ -787,7 +777,7 @@ test.apply(obj, [5, 10]);
 
 ---
 
-22. **What are generator functions in JavaScript?**
+8. **What are generator functions in JavaScript?**
 
 - `Generators are functoins that can be exited and later re-entered.` Their context will be saved across re-entrances.
 
@@ -846,8 +836,8 @@ console.log(arrayIterator.next().value); // 2
 
 ---
 
-23. **What is closure in JavaScript?**
-    <span style="color:yellow">[Thinkify, Flipkart, Landmark Group]</span>
+9. **What is closure in JavaScript?**
+   <span style="color:yellow">[Thinkify, Flipkart, Landmark Group]</span>
 
 - Function along with its lexical environment is known as closure. Lexical environment is the local memory plus the lexical environment of the parent.
 
@@ -867,7 +857,7 @@ x(); // 10
 
 ---
 
-24. **Explain event loop in JavaScript.**
+10. **Explain event loop in JavaScript.**
     <span style="color:yellow">[Flipkart]</span>
 
 - JavaScript is a synchronous single threaded language. It has one `call stack` inside which the code is executed, and it perform only one task at a time.
@@ -882,7 +872,7 @@ x(); // 10
 
 ---
 
-25. **Explain Promise.all().**
+11. **Explain Promise.all().**
     <span style="color:yellow">[Thinkify]</span>
 
 - `Promise.all()` is a built in JavaScript method that accepts an array of promises and returns a new promise. `Promise.all()` will wait for all the promises in the input array to be resolved before resolving the resulting promise it returns. If any of the input promises reject, the resulting promise returned by `Promise.all()` will also reject immediately.
@@ -897,7 +887,7 @@ Promise.all([p1, p2, p3]).then((value) => console.log(value)); // [1, 2, 3] afte
 
 ---
 
-26. **Write polyfills for map, filter and reduce**.
+12. **Write polyfills for map, filter and reduce**.
 
 **Map**
 
@@ -946,7 +936,7 @@ console.log([1, 2, 3].myReduce((total, n) => total + n, 0));
 
 ---
 
-27. **Differentiate between map and forEach. Also write similarity.**
+13. **Differentiate between map and forEach. Also write similarity.**
 
 **Difference**
 
@@ -979,7 +969,7 @@ console.log(arr2); // [1, 4, 9]
 
 ---
 
-28. **Problems based on map, filter, and reduce**
+14. **Problems based on map, filter, and reduce**
 
 ```javascript
 let students = [
@@ -1014,7 +1004,7 @@ const misc = students
 
 ---
 
-29. **Give an example of private function in JavaScript**
+15. **Give an example of private function in JavaScript**
 
 ```javascript
 class BankAccount {
@@ -1040,7 +1030,7 @@ console.log(acc.getBalance(1, 2)); // Not Authorized
 
 ---
 
-30. **Give code example of getters and setters in JavaScript**
+16. **Give code example of getters and setters in JavaScript**
 
 ```javascript
 class Student {
@@ -1087,7 +1077,7 @@ console.log(s1.getRollNo()); // 168
 console.log(s1.getDetails()); // ['John Doe', 168]
 ```
 
-31. **Deep cloning vs Shallow cloning in JavaScript.**
+17. **Deep cloning vs Shallow cloning in JavaScript.**
     <span style="color:yellow">[Flipkart]</span>
 
 ```javascript
@@ -1114,7 +1104,7 @@ Deep clone creates a new object with same values.
 
 ---
 
-32. **How to know if a browser can execute JavaScript**.
+18. **How to know if a browser can execute JavaScript**.
 
 ```html
 <noscript>Your browser does not support JavaScript!</noscript>
@@ -1124,7 +1114,7 @@ The content inside the `noscript` tag will only be displayed if the browser does
 
 ---
 
-33. **What is strict mode in JavaScript?**
+19. **What is strict mode in JavaScript?**
 
 - Strict mode in JavaScript is a way to enforce stricter rules and best practices in code, which can help catch common coding mistakes and prevent certain types of bugs.
 
@@ -1153,7 +1143,7 @@ The above code will log `undefined` if in strict mode, else `window` in case of 
 
 ---
 
-34. **Output based questions**
+20. **Output based questions**
 
 ```javascript
 var a = 10;
@@ -1246,7 +1236,7 @@ console.log(obj2.a, obj2.b); // 0 2
 
 ---
 
-35. **What is prototype and prototypal inheritance?**
+21. **What is prototype and prototypal inheritance?**
     <span style="color:yellow">[Flipkart]</span>
 
 - In JavaScript, every object has a prototype object, which is either null or another object. _The prototype object is essentially a blueprint for creating new objects that share common functionality._
@@ -1269,7 +1259,7 @@ console.log(obj.c); // 45
 
 ---
 
-36. **Implement debounce and throttle in JavaScript**
+22. **Implement debounce and throttle in JavaScript**
 
 **Debounce**
 
@@ -1304,7 +1294,7 @@ function throttle(cb, delay) {
 
 ---
 
-37. **What is currying in JavaScript?**
+23. **What is currying in JavaScript?**
 
 - Currying is a technique to transform a function that takes multiple arguments into a sequence of functions that takes one or more than one arguments. The curried functions can be called one after another to gradually build up the original function's arguments.
 
@@ -1340,7 +1330,7 @@ multiplyByThree(5); // 15
 
 ---
 
-38. **Given an array of numbers. Return an array that has at max 2 same numbers, if any. Example:**
+24. **Given an array of numbers. Return an array that has at max 2 same numbers, if any. Example:**
 
 _Input: [1,1,1,2,2,2,3,3,3,4] Output: [1,1,2,2,3,3,4]_
 
@@ -1363,7 +1353,7 @@ console.log(output);
 
 ---
 
-39. **Given an array of numbers. Return an object having numbers as keys and their frequency as values.**
+25. **Given an array of numbers. Return an object having numbers as keys and their frequency as values.**
 
 ```javascript
 const arr = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4];
@@ -1383,7 +1373,7 @@ console.log(output); // {1 => 3, 2 => 3, 3 => 3, 4 => 1}
 
 ---
 
-40. **Given an array. Flatten it.**
+26. **Given an array. Flatten it.**
 
 ```javascript
 const arr = [1, [1, 2, [1, [1], 2], 3], 3, 4];
@@ -1399,7 +1389,7 @@ console.log(flattenArray(arr)); // [1, 1, 2, 1, 1, 2, 3, 3, 4]
 
 ---
 
-41. **Name some functional programming concepts that you use.**
+27. **Name some functional programming concepts that you use.**
 
 - `Pure functions`: A pure function is a function that always returns the same output for a given input and has no side effects. It does not modify any variables outside of its scope and doesn't rely on variables outside of its scope.
 
@@ -1415,7 +1405,7 @@ function sum(a, b) {
 
 ---
 
-42. **What are the different datatypes in JavaScript?**
+28. **What are the different datatypes in JavaScript?**
 
 - There are `8` basic data types in JavaScript:
 
@@ -1423,7 +1413,7 @@ function sum(a, b) {
 
 ---
 
-43. **What is the difference between null and undefined?**
+29. **What is the difference between null and undefined?**
 
 | null                                                         | undefined                                                        |
 | ------------------------------------------------------------ | ---------------------------------------------------------------- |
@@ -1433,7 +1423,7 @@ function sum(a, b) {
 
 ---
 
-44. **Output Questions**
+30. **Output Questions**
 
 ```javascript
 const array1 = [1, 2, 3, 4, 5];
@@ -1484,7 +1474,7 @@ console.log(1 === "1"); // false
 
 ---
 
-45. **What's the difference between a function and a method in JavaScript?**
+31. **What's the difference between a function and a method in JavaScript?**
 
 ```javascript
 // function
@@ -1502,7 +1492,7 @@ const obj = {
 
 ---
 
-46. **What is an event flow in JavaScript?**
+32. **What is an event flow in JavaScript?**
 
 - Event flow is the order in which event is received on the web page.
   _There are two possibilities:_
@@ -1515,7 +1505,7 @@ const obj = {
 
 ---
 
-47. **Create a modal as follows:**
+33. **Create a modal as follows:**
 
 - **Create a button, when it's clicked a modal should open with transparent black overlay.**
 - **the modal should have a close modal button (X), which upon clicking closes the modal.**
@@ -1652,7 +1642,7 @@ overlay.addEventListener("click", () => {
 
 ---
 
-48. **What will be the output of this? How will you fix this code?**
+34. **What will be the output of this? How will you fix this code?**
     <span style="color:yellow">[Flipkart]</span>
 
 ```javascript
@@ -1705,18 +1695,18 @@ setupHelp();
 
 ---
 
-49. **What is the difference between async/await and promises in JavaScript? When would you use one over the other, and how do you handle errors with async/await and promises?**
+35. **What is the difference between async/await and promises in JavaScript? When would you use one over the other, and how do you handle errors with async/await and promises?**
     <span style="color:yellow">[Flipkart, Landmark Group]</span>
 
 - async/await is a newer feature that was introduced in ES2017, while promises were introduced in ES6.
-- Async/await is built on top of promises and provides a more concise syntax for working with asynchronous code.
+- Async/await is built on top of promises and provides a more concise syntax for working with asynchronous code. It is syntactic sugar created on top of JavaScript Promises.
 - Promises are objects that represent a value that may not be available yet, but will be resolved at some point in the future. Promises have a `then` method that can be used to handle the resolved value and a `catch` method that can be used to handle the error.
 - Async/await allows us to write asynchronous code in a way that looks like synchronous code, which can be easier to read and understand. Withh async/await we use the `await` keyword to pause the execution of the function until the promise is resolved or rejected.
 
 **When to use what:**
 
 - Promises are more appropriate in cases where you need to perform `several` asynchronous operations in parallel. This is because promises can be chained together using the `then()` method, which allows you to execute several asynchronous operations concurrently.
-- Async/await is more appropriate in cases where you need to perform a `sequence` of asynchronous operations . This is because async/await provides a more synchronous way of writing asynchronous code.
+- Async/await is more appropriate in cases where you need to perform a `sequence` of asynchronous operations. This is because async/await provides a more synchronous way of writing asynchronous code.
 - Promises are more appropriate in cases where you need to handle errors in a more fine-grained way. This is because promises allow you to handle errors on a per-operation basis using the `catch()` method.
 - Async/await is more appropriate in cases where you need to handle errors in a more centralized way. This is because you can use a single `try/catch` block around the entire sequence of asynchronous operations.
 
@@ -1726,7 +1716,7 @@ _In terms of handling errors:_
 
 ---
 
-50. **Predict the output of the following code.**
+36. **Predict the output of the following code.**
     <span style="color:yellow">[Thinkify]</span>
 
 ```javascript
@@ -1746,7 +1736,7 @@ Since there's no `this` keyword for arrow function.
 
 ---
 
-51. **Given a string, reverse the string without reversing it's words.**
+37. **Given a string, reverse the string without reversing it's words.**
     <span style="color:yellow">[NCR Corporation]</span>
     <p>Eg: john doe -> doe john</p>
 
@@ -1758,9 +1748,9 @@ Since there's no `this` keyword for arrow function.
 
 ---
 
-## React
+## <a id="react">React</a>
 
-52. **Explain the useMemo hook in react.**
+1. **Explain the useMemo hook in react.**
 
 - The useMemo hook accepts a callback function and a list of dependencies as parameters, and returns the `memoized` value returned by the passsed function. The callback passed to the useMemo hook will only be executed if any value passed in the dependency array changes. `It is useful to avoid expensive calculations on every render when the returned value is not going to change.`
 
@@ -1814,7 +1804,7 @@ const App = () => {
 
 ---
 
-53. **Explain the useCallback hook in react.**
+2. **Explain the useCallback hook in react.**
 
 - The useCallback hook returns a `memoized callback` when passed a function and a list of dependencies as parameters. It is useful when a component is passing a callback to its child component to prevent the re-rendering of the child component when not required.
 
@@ -1886,7 +1876,7 @@ export default List;
 
 ---
 
-54. **What are pure components in react?**
+3. **What are pure components in react?**
 
 - A pure component is a component that that does not re-render when the value of state and props associated with it has been updated with the same values. Pure component restricts re-rendering, ensuring higher performance of the component.
 
@@ -1906,8 +1896,8 @@ export default PureComponent;
 
 ---
 
-55. **What is the virtual dom in react?**
-    <span style="color:yellow">[Thinkify]</span>
+4. **What is the virtual dom in react?**
+   <span style="color:yellow">[Thinkify]</span>
 
 - React maintains a clone of the real DOM (Document Object Model) which is called the virtual DOM. Whenever there's an update, react creates a new version of the virtual DOM.
 
@@ -1917,8 +1907,8 @@ export default PureComponent;
 
 ---
 
-56. **What are the lifecycle methods in a class component?**
-    <span style="color:yellow">[Flipkart]</span>
+5. **What are the lifecycle methods in a class component?**
+   <span style="color:yellow">[Flipkart]</span>
 
 - We can mainly classify the methods into four phases: `Mounting` `Updating` `Unmounting` `Error Handling`.
 
@@ -1932,7 +1922,7 @@ export default PureComponent;
 
 ---
 
-57. **Why redux uses immutable objects?**
+6. **Why redux uses immutable objects?**
 
 - Redux objects are made immutable for the following reasons:
 
@@ -1944,7 +1934,7 @@ export default PureComponent;
 
 ---
 
-58. **What are react hooks? Why should we use them?**
+7. **What are react hooks? Why should we use them?**
 
 - React hooks are functions that allow us to use React features and `stateful logic` in functional components, which are components defined as plain JavaScript functions.
 
@@ -1962,7 +1952,7 @@ export default PureComponent;
 
 ---
 
-59. **Explain internal working of useState() hook in react.**
+8. **Explain internal working of useState() hook in react.**
 
 - The `useState()` is a build-in react hook that allows us to add state to a functional component. It returns an array of two values: `the current state value` and `a function to update the state value`. It takes `initial state value` as argument.
 
@@ -2003,7 +1993,7 @@ export default App;
 
 ---
 
-60. **What is context API in react?**
+9. **What is context API in react?**
 
 - The Context API in react is a way to share data between components without, avoiding `prop drilling`. It is a global state management that is suited only for small applications.
 
@@ -2043,7 +2033,7 @@ export default Child;
 
 ---
 
-61. **How to handle errors in React components?**
+10. **How to handle errors in React components?**
 
 ```javascript
 import { useEffect, useState } from "react";
@@ -2077,7 +2067,7 @@ export default useFetch;
 
 ---
 
-62. **Create a list as shown below in react.**
+11. **Create a list as shown below in react.**
 <span style="color:yellow">[Flipkart]</span>
 <p align="center"><img src="./images/li-react.png" /></p>
 
@@ -2154,16 +2144,16 @@ export default App;
 
 ---
 
-## General
+## <a id="general">General</a>
 
-63. **What happens when you type a URL?**
+1. **What happens when you type a URL?**
 
 - <a href="https://www.geeksforgeeks.org/what-happens-when-we-type-a-url/">Answer1</a>
 - <a href="https://aws.amazon.com/blogs/mobile/what-happens-when-you-type-a-url-into-your-browser/">Answer2</a>
 
 ---
 
-64. **What is the difference between SSR and CSR? Which one is better?**
+2. **What is the difference between SSR and CSR? Which one is better?**
 
 **Server Side Rendering (SSR)**
 
@@ -2255,7 +2245,7 @@ export default App;
 
 ---
 
-65. **What is a PWA?**
+3. **What is a PWA?**
 
 - `Progressive Web Apps` (PWA) are web applications that are designed to provide a user experience that is similar to native mobile apps. PWAs can be accessed through a web browser, but they can also be installed on the user's device and accessed from the home screen, just like a native app.
 
@@ -2271,7 +2261,7 @@ export default App;
 
 ---
 
-66. **What is JWT? How does it work?**
+4. **What is JWT? How does it work?**
 
 - JWT stands for `JSON Web Tokens`. It is an open standard for securely transmitting information between parties as a JSON object. JWTs are often used for authenticatino and authorization purposes.
 
@@ -2288,5 +2278,15 @@ export default App;
 - `Expiration`: JWTs can also have an expiration time, after which the token becomes invalid. This helps to prevent unauthorized access to protected resources.
 
 _In summary, JWTs provide a secure way to transmit information between parties by using a signed token that contains a payload of information. The token is used to authenticate and authorize users and can have an expiration time to prevent unauthorized access._
+
+---
+
+5. **Differentiate between Babel and Webpack.**
+   <span style="color:yellow">[Flipkart]</span>
+
+| Babel                                                                                                                                            | Webpack                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Babel is a JavaScript compiler that is used to convert ES6+ code into backwards compatible version of JavaScript that can run on older browsers. | Webpack is a module bundler that is used to package multiple JavaScript files and their dependencies into a single file or a set of files that can be loaded by a web browser. |
+| Babel is focused on transpiling JavaScript code to make it compatible with different environments.                                               | Webpack is focused on bundling and optimizing JavaScript code for efficient delivery to the browser.                                                                           |
 
 ---
