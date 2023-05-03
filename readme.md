@@ -1,6 +1,10 @@
-# Interview Questions
+# Frontend Interview Questions
 
 `HTML` `CSS` `JavaScript` `React`
+
+### Recommendation: watch <a href="https://www.youtube.com/watch?v=pN6jk0uUrD8&list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP&ab_channel=AkshaySaini">Namaste JavaScript</a> or read my <a href="https://blogs-ssk.netlify.app/">Blogs</a> before proceeding.
+
+## HTML/CSS
 
 1. **What is div vs span or block vs inline?**
 
@@ -89,6 +93,8 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 
 - Precedence order: !important > inline-css > id > class > tag.
 
+- <a href="https://blogs-ssk.netlify.app/css-specificity">More</a>
+
 ---
 
 6. **What is the difference between Reset CSS and Normalize CSS?**
@@ -111,7 +117,122 @@ SCSS is not understood by the browser. It must be transpiled into CSS code that 
 
 ---
 
-7. **Differentiate between let, var, and const.**
+7. **Why are meta tags used? What are the meta tags you know?**
+
+- Meta tags are used in HTML to provide additional information about a web page to search engines, social media platforms, and web browsers. They help in `Search Engine Optimization`. They are placed in the head section of an HTML document and are not visible on the web page itself. Some common meta tags are listed below:
+
+- `<meta charset="utf-8">`: Specifies the character encoding of the HTML document.
+
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Sets the viewport width and initial zoom level for mobile devices.
+
+- `<meta name="description" content="...">`: Provides a short description of the web page that can be displayed in search engine results.
+
+- `<meta name="keywords" content="...">`: Specifies the keywords or phrases that the web apge is related to.
+
+- `<meta name="robots" content="...">`: Instructs search engines how to crawl and index the web page.
+
+- `<meta name="author" content="...">`: Specifies the author of the web page.
+
+- `meta name="theme-color" content="..."`: Sets the color of the browser toolbar and browsers's UI when the user is on the web page.
+
+---
+
+8. **How can you improve SEO just by HTML tags?**
+
+- `Use relevant and descriptive title tags`: The title tag is one of the most important HTML tags for SEO. Make sure your title tag accurately reflects the content of your page and includes your target keywords.
+
+- `Use header tags to structure your content`: Header tags help to organize content and make it more readable. Use header tags to break your content into logical sections and include your target keywords in the headings.
+
+- `Use meta descriptions to provide a summary of your content`: Meta descriptions appear in search engine results and can help to improve click-through rates.
+
+- `Use alt tag to describe your images`: Alt tags are used to describe images for people with visual impairments and for search engines.
+
+- `Do not used span and div tags everywhere`: Use Semantic HTML wherever possible
+
+---
+
+9. **Explain the box model in CSS.**
+   <span style="color:yellow">[Flipkart]</span>
+
+- The box model has four parts: `Content` `Padding` `Border` `Margin`
+
+- `Content`: This is the actual content.
+
+- `Padding`: This is the space between the content and the border of the box.
+
+- `Border`: This is a line that surrounds the padding and content of the box.
+
+- `Margin`: This is the space between the border of the box and the neighbouring elements on the page.
+
+---
+
+10. **Explain box-sizing property in CSS.**
+    <span style="color:yellow">[Flipkart]</span>
+
+- The `box-sizing` property controls how the `total size of an element is calculated`, including its content, padding, and border. The possible values for box-sizing are:
+
+- `content-box`: This is the default value. It tells the browser to `calculate the size of an element based on its content only, without including padding or border`. In other words, the size of an element is determined by the width and height properties.
+
+- `border-box`: It tells the browser to calculate the size of an element based on `its content, padding, and border`. In other words, the width and height properties specify the size of the content area, and the padding and border are added to it. This is more convenient because it lets us set the width and height of an element without having to take into account the padding and border.
+
+---
+
+11. **Differentiate between local storage, session storage, and cookies.**
+
+- `Local Storage`: It is a key value storage that allows you to store data in a user's browser without an expiration date. This means that the data stored in local storage persists even after the browser is closed or the computer is restarted. The data is specific to a domain and can be accessed by scripts from that domain.
+
+- `Session Storage`: Data stored in sessionStorage is tied to a specific session. THis means that the data is lost when the browser is closed. The data is specific to a domain and can only be accessed by scripts from that domain.
+
+- `Cookies`: Cookies are small pieces of data that are stored in a user's browser and are sent to the server with each request. Cookies can be used to store data that persists across multiple sessions or to track user behavior. Cookies have an expiration date, and their lifespan can be set by the server.
+
+---
+
+12. **What's the difference between opacity:0, visibility:hidden, and display:none ?**
+
+- `opacity:0` : this will make the element transparent. You cannot see it, but you can interact with it. It takes up space.
+
+- `visibllity:hidden`: this is a combination of opacity:0 and pointer-events:none. In other words, you cannot see it or interact with it. However, it takes up space.
+
+- `display:none`: this removes the element from the layout, hence the element doesn't take up space. You cannot see it or iteract with it.
+
+| opacity:0                        | visibility:hidden                | display:none                         |
+| -------------------------------- | -------------------------------- | ------------------------------------ |
+| element takes up space           | element takes up sapce           | element doesn't take any space       |
+| element is interactable          | element is not interactable      | element is not interactable          |
+| element is present in the layout | element is present in the layout | element is not present in the layout |
+
+---
+
+13. **Create a triangle in CSS**
+
+```css
+div {
+  box-sizing: border-box;
+  margin-left: 45%;
+  height: 0;
+  width: 0;
+  border-top: 5rem solid transparent;
+  border-bottom: 5rem solid transparent;
+  border-right: 5rem solid yellow;
+  rotate: 90deg;
+}
+```
+
+---
+
+14. **Differentiate between Babel and Webpack.**
+    <span style="color:yellow">[Flipkart]</span>
+
+| Babel                                                                                                                                            | Webpack                                                                                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Babel is a JavaScript compiler that is used to convert ES6+ code into backwards compatible version of JavaScript that can run on older browsers. | Webpack is a module bundler that is used to package multiple JavaScript files and their dependencies into a single file or a set of files that can be loaded by a web browser. |
+| Babel is focused on transpiling JavaScript code to make it compatible with different environments.                                               | Webpack is focused on bundling and optimizing JavaScript code for efficient delivery to the browser.                                                                           |
+
+---
+
+## JavaScript
+
+15. **Differentiate between let, var, and const.**
 
 - `Scope`: let and const are block scoped, while var is function scoped.
 
@@ -133,7 +254,7 @@ for (let i = 1; i < 4; i++) {
 // Output: 1 2 3
 ```
 
-- `Hoisting`: all the three are `hoisted`. However, `let` and `const` are in a `temporal dead zone`. This means that JavaScript acknowledges its presence by providing it with the value `undefined` but `won't let us use it`. We would be getting the value `undefined` when we access var before its declaration.
+- `Hoisting`: all the three are `hoisted`. However, `let` and `const` are in a `temporal dead zone`. This means that JavaScript acknowledges its presence by providing it with the value `undefined`, but `won't let us use it`. We would be getting the value `undefined` when we access var before its declaration. <a href="https://blogs-ssk.netlify.app/js-hoisting-let&const">More</a>
 
 ```javascript
 console.log(a);
@@ -212,7 +333,7 @@ const c;
 c = 10; // SyntaxError: Missing initializer in const declaration
 ```
 
-- `Shadowing`: When we have the same variable name in different places, the value of the variable closest to the line of execution is chosen. This phenomenon is called shadowing.
+- `Shadowing`: When we have the same variable name in different places, the value of the variable closest to the line of execution is chosen. This phenomenon is called shadowing. <a href="https://blogs-ssk.netlify.app/js-block&shadowing">More</a>
 
 ```javascript
 var a = 10;
@@ -255,8 +376,8 @@ let a = 10;
 
 ---
 
-8. **What is a Promise? What is Promsie Chain?**
-   <span style="color:yellow">[Flipkart]</span>
+16. **What is a Promise? What is Promsie Chain?**
+    <span style="color:yellow">[Flipkart]</span>
 
 `Promise`
 
@@ -335,7 +456,7 @@ function promiseChain(data) {
 
 ---
 
-9. **Output Questions**
+17. **Output Questions**
 
 ```javascript
 function promisify(number, increase) {
@@ -418,7 +539,7 @@ to be put to the callstack for execution.
 
 ---
 
-10. **If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?**
+18. **If there are two functions to be executed, one is a returned promise and the other is a function inside the setTimeout. Which will be executed first given the call stack is busy and both are ready to be executed when the call stack becomes free?**
 
 - The `promise` will be given `priority` over the `setTimeout` function. In JavaScript, the event loop is responsible for managing the call stack, callback queue and the microtask queue. Promises and operations from mutation observer go to the microtask queue while all other asynchronous operations are passed to the callback queue till they're ready to be executed in the callstack.
 
@@ -428,191 +549,7 @@ to be put to the callstack for execution.
 
 ---
 
-11. **Explain the useMemo hook in react.**
-
-- The useMemo hook accepts a callback function and a list of dependencies as parameters, and returns the `memoized` value returned by the passsed function. The callback passed to the useMemo hook will only be executed if any value passed in the dependency array changes. `It is useful to avoid expensive calculations on every render when the returned value is not going to change.`
-
-```javascript
-const App = () => {
-  const [dark, setDark] = useState(false);
-  const [value, setValue] = useState(1);
-  const doubleNumber = useMemo(() => slowFunction(value), [value]);
-
-  const styles = useMemo(() => {
-    return {
-      backgroundColor: dark ? "black" : "white",
-      color: dark ? "white" : "black",
-    };
-  }, [dark]);
-
-  useEffect(() => {
-    console.log("useEffect called");
-  }, [styles]);
-
-  function handleValueChange(e) {
-    setValue(e.target.value);
-  }
-
-  function handleThemeChange() {
-    console.log("Theme change called");
-    setDark((prevDark) => !prevDark);
-  }
-
-  function slowFunction(value) {
-    console.log("Slow function called");
-    for (let i = 0; i < 1000000000; i++) {}
-    return value * 2;
-  }
-
-  return (
-    <>
-      <input type="number" value={value} onChange={handleValueChange} />
-      <button onClick={handleThemeChange}>Change Theme</button>
-      <div style={styles}>{doubleNumber}</div>
-    </>
-  );
-};
-```
-
-- In the above code, we have an input tag, a button and a div that shows 2x value of the input tag. We've used the useMemo hook in two places here. One where the value passed in dependency array is `primitive` and other where it is a `reference`. The `slowFunction` slows down the code by iterating over a long number, doing nothing. If we don't use the useMemo hook, this function will be called everytime the component rerenders, and the component will re-render everytime any state in the component changes.
-
-- As you can see, the `slowFunction` has nothing to do with changing the `dark` state. Hence we've memoized the `slowFunction`, which will now run only when the `value` state changes. It won't run if we change the `dark` state in our application anymore.
-
-- For the second part, we're memoizing the `styles` object. Here we're checking for `referential equality`. Basically, the `styles` object is formed everytime the component re-renders and even if the value inside it is same, the code inside the `useEffect` would be executed everytime if we don't use `useMemo` since a new object is created everytime and objects point to a particular location, which is compared, rather than what's inside the object. Hence we're memoizing the `styles` object itself such that the code inside useEffect runs only when the value of the `dark` state changes, which in turn would change the `styles` object.
-
----
-
-12. **Explain the useCallback hook in react.**
-
-- The useCallback hook returns a `memoized callback` when passed a function and a list of dependencies as parameters. It is useful when a component is passing a callback to its child component to prevent the re-rendering of the child component when not required.
-
-- The major diffrence between `useCallback` and `useMemo` is that useCallabck returns a `memoized function` which can later be called. useMemo, on the other hand returns a `memoized value`.
-
-```javascript
-// App.jsx
-
-import { useState, useCallback } from "react";
-import List from "./List";
-
-const App = () => {
-  const [value, setValue] = useState(1);
-  const [isLight, setIsLight] = useState(true);
-  const styles = {
-    backgroundColor: isLight ? "white" : "yellow",
-  };
-
-  const getValueList = useCallback(
-    (incrementor) => {
-      return [
-        value + incrementor,
-        value + 1 + incrementor,
-        value + 2 + incrementor,
-      ];
-    },
-    [value]
-  );
-
-  function handleClick() {
-    setIsLight((prevValue) => !prevValue);
-  }
-
-  function handleValueChange(e) {
-    setValue(parseInt(e.target.value));
-  }
-
-  return (
-    <div style={styles}>
-      <input type="number" value={value} onChange={handleValueChange} />
-      <button onClick={handleClick}>Toggle Theme</button>
-      <List getValueList={getValueList} />
-    </div>
-  );
-};
-
-export default App;
-```
-
-```javascript
-// List.jsx
-
-import { useState, useEffect } from "react";
-
-const List = ({ getValueList }) => {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    setItems(getValueList(3));
-    console.log("updating items");
-  }, [getValueList]);
-
-  return items.map((item) => <div key={item}>{item}</div>);
-};
-
-export default List;
-```
-
-- In the above code, we have parent App.jsx and child List.jsx. Parent component has a function `getValueList` that returns a list of items which is to be passed to the child component. If we don't use the `useCallback` hook, the `useEffect` inside the child component will be executed everytime the parent re-renders since everytime a new function is being created in the parent, which will always be different `(referential equality)`. In order to get around this, we have `memoized` the `getValueList` function by placing it inside the `useCallback` hook, and since the `getValueList` function returns a list which dependes only on the `value` state, we have the `value` state inside the dependency array. Now the `useEffect` will not be executed if we change the `isLight` state in the parent component, thus optimizing the app.
-
----
-
-13. **What are pure components in react?**
-
-- A pure component is a component that that does not re-render when the value of state and props associated with it has been updated with the same values. Pure component restricts re-rendering, ensuring higher performance of the component.
-
-```javascript
-import React from "react";
-
-const PureComponent = React.memo((props) => {
-  return <div>{props.text}</div>;
-});
-
-export default PureComponent;
-```
-
-- `React.memo` is a higher-order component that memoizes the output of a component and caches it based on its props. It is used to optimize rendering performance by avoiding unnecessary re-renders of a component when its props have not changed.
-
-- `Use Pure Components when props and state changes are made to primitives. State and prop changes to a reference may lead to incorrect results and inconsistent rendering.`
-
----
-
-14. **What is the virtual dom in react?**
-    <span style="color:yellow">[Thinkify]</span>
-
-- React maintains a clone of the real DOM (Document Object Model) which is called the virtual DOM. Whenever there's an update, react creates a new version of the virtual DOM.
-
-- It then compares the two versions of the virtual DOM and calculates the shortest path to make those changes. This process of comparison of the old and new versions of the virtual DOM is called `diffing`.
-
-- The shortest path obtained is then used by react to update the real DOM with minimum changes. This entire process is called `reconciliation`.
-
----
-
-15. **What are the lifecycle methods in a class component?**
-    <span style="color:yellow">[Flipkart]</span>
-
-- We can mainly classify the methods into four phases: `Mounting` `Updating` `Unmounting` `Error Handling`.
-
-- `Mounting`: The mounting lifecycle methods are called when an instance of a component is being created and inserted to the DOM. During the mounting phase, we have four methods: `constructor` `static getDerivedStateFromProps` `render` `componentDidMount`.
-
-- `Updating`: The updating lifecycle methods are called when a component is being re-rendered as a result of changes to either its props or state. During the updating phase, we have 5 methods: `static getDerivedStateFromProps` `shouldComponentUpdate` `render` `getSnapshotBeforeUpdate` `componentDidUpdate`.
-
-- `Unmounting`: The unmounting lifecycle methods are called when a component is being removed from the DOM. During the unmounting phase we have 1 method: `componentWillUnmount`.
-
-- `Error Handling`: The error handling methods are called when there's an error during rendering, in a lifecycle method, or in the constructor of any child component. During error handling, we have 2 methods: `static getDerivedStateFromError` `componentDidCatch`.
-
----
-
-16. **Why redux uses immutable objects?**
-
-- Redux objects are made immutable for the following reasons:
-
-- Predictability: By making redux objects immutable, the state of the application becomes predictable. When an action is dispatched to the store, the state is updated by returning a new object with the updated properties, rather than mutating the existing object. This means that the state of the application can be tracked and easily tracked back to the source of the changes.
-
-- Performance: By using immutable objects, the performance of the application can be improved, particularly when working with large data sets. Because immutable objects can be shared between different parts of the application without worrying about them being mutated, unnecessary copies of data can be avoided, leading to faster perfromance.
-
-- Debugging: Debugging can be easire with immutable objects because they allow you to easily trace the state of the application back to the source of the changes.
-
----
-
-17. **What is the `this` keyword in JavaScript?**
+19. **What is the `this` keyword in JavaScript?**
     <span style="color:yellow">[Thinkify]</span>
 
 - The `this` keyword in JavaScript referes to the object that is currently executing the code. At the global level, this points to the global object, which is `window` in case of browsers.
@@ -639,71 +576,11 @@ class Check {
 const checker = new Check();
 ```
 
-`When this appears inside a function that is not bound to any object or class, the value of this defaults to the global object`.
+`When this appears inside a function that is not bound to any object or class, the value of this defaults to the global object, when not using strict mode.`.
 
 ---
 
-18. **Why are meta tags used? What are the meta tags you know?**
-
-- Meta tags are used in HTML to provide additional information about a web page to search engines, social media platforms, and web browsers. They help in `Search Engine Optimization`. They are placed in the head section of an HTML document and are not visible on the web page itself. Some common meta tags are listed below:
-
-- `<meta charset="utf-8">`: Specifies the character encoding of the HTML document.
-
-- `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: Sets the viewport width and initial zoom level for mobile devices.
-
-- `<meta name="description" content="...">`: Provides a short description of the web page that can be displayed in search engine results.
-
-- `<meta name="keywords" content="...">`: Specifies the keywords or phrases that the web apge is related to.
-
-- `<meta name="robots" content="...">`: Instructs search engines how to crawl and index the web page.
-
-- `<meta name="author" content="...">`: Specifies the author of the web page.
-
-- `meta name="theme-color" content="..."`: Sets the color of the browser toolbar and browsers's UI when the user is on the web page.
-
----
-
-19. **How can you improve SEO just by HTML tags?**
-
-- `Use relevant and descriptive title tags`: The title tag is one of the most important HTML tags for SEO. Make sure your title tag accurately reflects the content of your page and includes your target keywords.
-
-- `Use header tags to structure your content`: Header tags help to organize content and make it more readable. Use header tags to break your content into logical sections and include your target keywords in the headings.
-
-- `Use meta descriptions to provide a summary of your content`: Meta descriptions appear in search engine results and can help to improve click-through rates.
-
-- `Use alt tag to describe your images`: Alt tags are used to describe images for people with visual impairments and for search engines.
-
-- `Do not used span and div tags everywhere`: Use Semantic HTML wherever possible
-
----
-
-20. **Explain the box model in CSS.**
-    <span style="color:yellow">[Flipkart]</span>
-
-- The box model has four parts: `Content` `Padding` `Border` `Margin`
-
-- `Content`: This is the actual content.
-
-- `Padding`: This is the space between the content and the border of the box.
-
-- `Border`: This is a line that surrounds the padding and content of the box.
-
-- `Margin`: This is the space between the border of the box and the neighbouring elements on the page.
-
----
-
-21. **Explain box-sizing property in CSS.**
-    <span style="color:yellow">[Flipkart]</span>
-
-- The `box-sizing` property controls how the `total size of an element is calculated`, including its content, padding, and border. The possible values for box-sizing are:
-
-- `content-box`: This is the default value. It tells the browser to `calculate the size of an element based on its content only, without including padding or border`. In other words, the size of an element is determined by the width and height properties.
-
-- `border-box`: It tells the browser to calculate the size of an element based on `its content, padding, and border`. In other words, the width and height properties specify the size of the content area, and the padding and border are added to it. This is more convenient because it lets us set the width and height of an element without having to take into account the padding and border.
-
----
-
-22. **What are the call, bind, and apply methods in JavaScript? Differentiate between them.**
+20. **What are the call, bind, and apply methods in JavaScript? Differentiate between them.**
     <span style="color:yellow">[Flipkart]</span>
 
 - `call` `bind` and `apply` are used to manipulate the `this` keyword and pass arguments to functions in different ways.
@@ -830,7 +707,7 @@ console.log(participant3.battery); // 55
 
 ---
 
-23. **What is polyfill in JavaScript? Write polyfill for call, bind, and apply.**
+21. **What is polyfill in JavaScript? Write polyfill for call, bind, and apply.**
 
 - Polyfill is a piece of code that provides functionality that is not natively available in the current version of a browser or JS engine. Polyfills are commonly used to implement new web standards or features that have been added to JS but are not yet widely supported by all web browsers. For example, if a new JavaScript method is introduced in the latest version of the language, but older browsers do not support it, a polyfill can be written to add support for the new method in those older browsers.
 
@@ -910,7 +787,7 @@ test.apply(obj, [5, 10]);
 
 ---
 
-24. **What are generator functions in JavaScript?**
+22. **What are generator functions in JavaScript?**
 
 - `Generators are functoins that can be exited and later re-entered.` Their context will be saved across re-entrances.
 
@@ -969,7 +846,7 @@ console.log(arrayIterator.next().value); // 2
 
 ---
 
-25. **What is closure in JavaScript?**
+23. **What is closure in JavaScript?**
     <span style="color:yellow">[Thinkify, Flipkart, Landmark Group]</span>
 
 - Function along with its lexical environment is known as closure. Lexical environment is the local memory plus the lexical environment of the parent.
@@ -990,7 +867,7 @@ x(); // 10
 
 ---
 
-26. **Explain event loop in JavaScript.**
+24. **Explain event loop in JavaScript.**
     <span style="color:yellow">[Flipkart]</span>
 
 - JavaScript is a synchronous single threaded language. It has one `call stack` inside which the code is executed, and it perform only one task at a time.
@@ -1005,7 +882,7 @@ x(); // 10
 
 ---
 
-27. **Explain Promise.all().**
+25. **Explain Promise.all().**
     <span style="color:yellow">[Thinkify]</span>
 
 - `Promise.all()` is a built in JavaScript method that accepts an array of promises and returns a new promise. `Promise.all()` will wait for all the promises in the input array to be resolved before resolving the resulting promise it returns. If any of the input promises reject, the resulting promise returned by `Promise.all()` will also reject immediately.
@@ -1020,239 +897,7 @@ Promise.all([p1, p2, p3]).then((value) => console.log(value)); // [1, 2, 3] afte
 
 ---
 
-28. **What are react hooks? Why should we use them?**
-
-- React hooks are functions that allow us to use React features and `stateful logic` in functional components, which are components defined as plain JavaScript functions.
-
-- React hooks can be used only with functional components. They cannot be used with class components.
-
-- React hooks consist of two types: `state` hooks and `effect` hooks. State hooks, such as `useState` allow us to add state to functional components, which were previously stateless. Effect hooks such as `useEffect` allow us to perform side effects, such as fetching data from a server, in a functional component. <a href="https://blogs-ssk.netlify.app/react-MimicLifecycle">More...</a>
-
-**Here are some reasons why we should use them**
-
-- `Simplicity`: Functional components are simpler to read and write than class components.
-
-- `Performace`: Functional components are generally faster and use less memory than class components. This is because functional components are simpler and ligher-weight than class components.
-
-- `Reusability`: Functional components can be easily reused across our application, as they don't depend on inheritance or lifecycle methods like class components do.
-
----
-
-29. **Explain internal working of useState() hook in react.**
-
-- The `useState()` is a build-in react hook that allows us to add state to a functional component. It returns an array of two values: `the current state value` and `a function to update the state value`. It takes `initial state value` as argument.
-
-```javascript
-import { useState } from "react";
-
-const App = () => {
-  const [count, setCount] = useState(0);
-
-  function handleDecrement() {
-    setCount((prevCount) => prevCount - 1);
-  }
-
-  function handleIncrement() {
-    setCount((prevCount) => prevCount + 1);
-  }
-  return (
-    <div>
-      <button onClick={handleDecrement}>Decrement</button>
-      <span>{count}</span>
-      <button onClick={handleIncrement}>Increment</button>
-    </div>
-  );
-};
-
-export default App;
-```
-
-- In the above example, we have a `count` state which can be increased or decreased based in the two buttons that are rendered to the screen. **It is important to note that when the state value depends on the previous state, we should always use a function to update the state rather than updating it directly.** `setCount((prevCount) => prevCount + 1)` rather than `setCount(count + 1)`.
-
-- `useState` is asynchronous in nature. Internally, the `useState` hook uses a data structure called **`fiber`** to keep track of the state and the associated update functions. When we call the `useState()`, react creates a new fiber to represent the state and stores it in a data structure called the `fiber tree`. When the state is updated, react creates a new fiber to represent the updated state and adds it to the fiber tree. React then uses the `reconciliation` process to update the DOM.
-
-- It is important to note that `fiber tree` used in useState is different from the `virtual DOM`. useState doesn't directly use the virtual DOM.
-
-- One of the key benefits of the `fiber` data structure is that it allows react to perform updates in a more efficient and flexible way. It allows react to perform updates `asynchronously`, pause and resume updates, and prioritize updates based on their importance and complexity.
-
-- The main difference between the fiber data structure and virtual DOM is their purpose. The `fiber` data structure is used by react to `manage the rendering and updating process of components`, wherease the `virtual DOM` is used by react to `manage updates to the UI`.
-
----
-
-30. **What is context API in react?**
-
-- The Context API in react is a way to share data between components without, avoiding `prop drilling`. It is a global state management that is suited only for small applications.
-
-```javascript
-// Parent component
-
-import { createContext, useState } from "react";
-import Child from "./Child";
-
-export const AppContext = createContext(null);
-
-const Parent = () => {
-  const [name, setName] = useState("John Doe");
-  <AppContext.Provider value={{ name, setName }}>
-    <Child />
-  </AppContext.Provider>;
-};
-
-export default Parent;
-```
-
-```javascript
-// Child component
-
-import { useContext } from "react";
-import { AppContext } from "./Parent";
-
-const Child = () => {
-  const { name, setName } = useContext(AppContext);
-  return <button onClick={() => setName("Sally Taylor")}>User: {name}</button>;
-};
-
-export default Child;
-```
-
-<a href="https://github.com/SoumyaSagnik/Extended-Notes/blob/main/topics/Context%20Api/readme.md">More...</a>
-
----
-
-31. **How to handle errors in React components?**
-
-```javascript
-import { useEffect, useState } from "react";
-import { fetchDataFromApi } from "../utils/api";
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    setLoading("loading...");
-    setData(null);
-    setError(null);
-
-    fetchDataFromApi(url)
-      .then((res) => {
-        setLoading(false);
-        setData(res);
-      })
-      .catch((err) => {
-        setLoading(false);
-        setError("Something went wrong!", err);
-      });
-  }, [url]);
-
-  return { data, loading, error };
-};
-
-export default useFetch;
-```
-
----
-
-32. **What happens when you type a URL?**
-
-- <a href="https://www.geeksforgeeks.org/what-happens-when-we-type-a-url/">Answer1</a>
-- <a href="https://aws.amazon.com/blogs/mobile/what-happens-when-you-type-a-url-into-your-browser/">Answer2</a>
-
----
-
-33. **What is the difference between SSR and CSR? Which one is better?**
-
-**Server Side Rendering (SSR)**
-
-- In SSR, all page resources are rendered on the server rather than the browser. The server sends fully rendered HTML, CSS and JS to the client when a request is made.
-
-**Working of SSR**
-
-- The user requests for a web page in a browser.
-
-- The browser then connects to the server, which already has the pre-rendered HTML and CSS code for the page.
-
-- HTML and CSS are displayed on the user's browser, but the page is not yet interactive.
-
-- The browser then downloads the JavaScript of the page, which is available on the server.
-
-- The browser executes the JavaScript code.
-
-- The page is now fully loaded and is now interactable.
-
-**Advantages of SSR**
-
-- `Faster initial page load time`: This provides a good user experience.
-
-- `Better SEO`: Due to the faster initial load time, search engine bots can crawl and index pages better.
-
-- `Optimal for users with a slow internet connection`: They can see the rendered HTML while JS is processing.
-
-- `Excellent Social Media Optimization (SMO)`: Whenever you copy a page link and send it to others or post it on social media, `a nice preview will show up with the page title, description and image`.
-
-**Disadvantages of SSR**
-
-- `Higher server load`: The browser keeps sending requests to the server as all page resources are located on the server.
-
-- `Time consuming`: Rendering huge applications on the server can be time-consuming.
-
-- `Less interactive`: Initially the page may be visible to the users but they can't interact with it.
-
-**Client Side Rendering (CSR)**
-
-- CSR is a technique where all the page resources are rendered on the client's browser rather than the server. This is done using a JS framework that compiles and generates code at the browser-end.
-
-**Working of CSR**
-
-- The user requests for a web page in the browser.
-
-- The server/ CDN(Content Delivery Network) responds to the request with an HTML page that contains links to essential JavaScript files.
-
-- The page is not visible to the user and only a loading sign can be seen.
-
-- The browser downloads the JavaScript through the links in the HTML.
-
-- The JavaScript is then executed through the framework.
-
-- Thhe final request is sent to the server for the final render.
-
-- The user can now see and interact with the page.
-
-**Advantages of CSR**
-
-- `Faster render of subsequent pages`: The page renders quickly after the initial page load time.
-
-- `Offers quicker navigation of the website`
-
-- `Puts less load on the server`: The JavaScript is executed on the client's browser, putting less load on the server.
-
-- `More interactive`: The rendered page is interactive from the first second.
-
-**Disadvantages of CSR**
-
-- `Slower initial load`: The HTML, CSS, and JS have to be rendered first and then displayed to the user, increasing the time taken to load the initial page.
-
-- `Worse SEO than SSR`
-
-**SSR vs CSR**
-
-- `Page load time`: Page load time is an important metric, especially for SEO. The initial page load time in SSR is faster than in CSR. This is because in SSR, the server responds by sending pre-rendered HTML, which can be viewed by the user. In CSR, the entire code (HTML, CSS, and JS) needs to be rendered before the user can view the page.
-
-- `Caching`: Caching is a technique where important, reusable scripts are stored in the client's browser. This saves time as the cached scripts don't need to be loaded again when a user revisits the website. `CSR wins in this case`. In SSR, since the page resources lie on the server, the browser needs to send timely requests to the server.
-
-- `SEO`: SSR is better for SEO than CSR.
-
-- The best thing to use would be a combination of both SSR and CSR i.e., `SSR with hydration`.
-
-**SSR with hydration**
-
-- This is a technique where the server generates the initial HTML and sends it to the client, then the client takes over and `hydrates` the static HTML into a fully interactive application. This combines the two main advantages of SSR and CSR. SSR initially so that SEO is better with less initial load time and then CSR so that the website is more interactive.
-
-- NextJS is built on SSR with hydration.
-
----
-
-34. **Write polyfills for map, filter and reduce**.
+26. **Write polyfills for map, filter and reduce**.
 
 **Map**
 
@@ -1301,7 +946,7 @@ console.log([1, 2, 3].myReduce((total, n) => total + n, 0));
 
 ---
 
-35. **Differentiate between map and forEach. Also write similarity.**
+27. **Differentiate between map and forEach. Also write similarity.**
 
 **Difference**
 
@@ -1334,7 +979,7 @@ console.log(arr2); // [1, 4, 9]
 
 ---
 
-36. **Problems based on map, filter, and reduce**
+28. **Problems based on map, filter, and reduce**
 
 ```javascript
 let students = [
@@ -1369,7 +1014,7 @@ const misc = students
 
 ---
 
-37. **Give an example of private function in JavaScript**
+29. **Give an example of private function in JavaScript**
 
 ```javascript
 class BankAccount {
@@ -1395,7 +1040,7 @@ console.log(acc.getBalance(1, 2)); // Not Authorized
 
 ---
 
-38. **Give code example of getters and setters in JavaScript**
+30. **Give code example of getters and setters in JavaScript**
 
 ```javascript
 class Student {
@@ -1442,7 +1087,7 @@ console.log(s1.getRollNo()); // 168
 console.log(s1.getDetails()); // ['John Doe', 168]
 ```
 
-39. **Deep cloning vs Shallow cloning in JavaScript.**
+31. **Deep cloning vs Shallow cloning in JavaScript.**
     <span style="color:yellow">[Flipkart]</span>
 
 ```javascript
@@ -1469,7 +1114,7 @@ Deep clone creates a new object with same values.
 
 ---
 
-40. **How to know if a browser can execute JavaScript**.
+32. **How to know if a browser can execute JavaScript**.
 
 ```html
 <noscript>Your browser does not support JavaScript!</noscript>
@@ -1479,7 +1124,7 @@ The content inside the `noscript` tag will only be displayed if the browser does
 
 ---
 
-41. **What is strict mode in JavaScript?**
+33. **What is strict mode in JavaScript?**
 
 - Strict mode in JavaScript is a way to enforce stricter rules and best practices in code, which can help catch common coding mistakes and prevent certain types of bugs.
 
@@ -1508,23 +1153,7 @@ The above code will log `undefined` if in strict mode, else `window` in case of 
 
 ---
 
-42. **What is a PWA?**
-
-- `Progressive Web Apps` (PWA) are web applications that are designed to provide a user experience that is similar to native mobile apps. PWAs can be accessed through a web browser, but they can also be installed on the user's device and accessed from the home screen, just like a native app.
-
-**Benefits of PWAs are listed below:**
-
-- `Offline functionality`: PWAs can work offline.
-
-- `App-like experience`: PWAs prove a user experience that is similar to native apps, with features like push notifications and the ability to be installed on the home screen.
-
-- `Fast performance`: PWAs are designed to be fast and responsive, providing a smooth and seamless user experience.
-
-- `Cross-platform compatibility`: PWAs can run on any device, with a modern web browser, including desktops, laptops, tablets, smartphones, etc.
-
----
-
-43. **Output based questions**
+34. **Output based questions**
 
 ```javascript
 var a = 10;
@@ -1617,7 +1246,7 @@ console.log(obj2.a, obj2.b); // 0 2
 
 ---
 
-44. **What is prototype and prototypal inheritance?**
+35. **What is prototype and prototypal inheritance?**
     <span style="color:yellow">[Flipkart]</span>
 
 - In JavaScript, every object has a prototype object, which is either null or another object. _The prototype object is essentially a blueprint for creating new objects that share common functionality._
@@ -1640,7 +1269,7 @@ console.log(obj.c); // 45
 
 ---
 
-45. **Implement debounce and throttle in JavaScript**
+36. **Implement debounce and throttle in JavaScript**
 
 **Debounce**
 
@@ -1675,7 +1304,7 @@ function throttle(cb, delay) {
 
 ---
 
-46. **What is currying in JavaScript?**
+37. **What is currying in JavaScript?**
 
 - Currying is a technique to transform a function that takes multiple arguments into a sequence of functions that takes one or more than one arguments. The curried functions can be called one after another to gradually build up the original function's arguments.
 
@@ -1711,7 +1340,7 @@ multiplyByThree(5); // 15
 
 ---
 
-47. **Given an array of numbers. Return an array that has at max 2 same numbers, if any. Example:**
+38. **Given an array of numbers. Return an array that has at max 2 same numbers, if any. Example:**
 
 _Input: [1,1,1,2,2,2,3,3,3,4] Output: [1,1,2,2,3,3,4]_
 
@@ -1734,7 +1363,7 @@ console.log(output);
 
 ---
 
-48. **Given an array of numbers. Return an object having numbers as keys and their frequency as values.**
+39. **Given an array of numbers. Return an object having numbers as keys and their frequency as values.**
 
 ```javascript
 const arr = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4];
@@ -1754,7 +1383,7 @@ console.log(output); // {1 => 3, 2 => 3, 3 => 3, 4 => 1}
 
 ---
 
-49. **Given an array. Flatten it.**
+40. **Given an array. Flatten it.**
 
 ```javascript
 const arr = [1, [1, 2, [1, [1], 2], 3], 3, 4];
@@ -1770,7 +1399,7 @@ console.log(flattenArray(arr)); // [1, 1, 2, 1, 1, 2, 3, 3, 4]
 
 ---
 
-50. **Name some functional programming concepts that you use.**
+41. **Name some functional programming concepts that you use.**
 
 - `Pure functions`: A pure function is a function that always returns the same output for a given input and has no side effects. It does not modify any variables outside of its scope and doesn't rely on variables outside of its scope.
 
@@ -1786,37 +1415,7 @@ function sum(a, b) {
 
 ---
 
-51. **Differentiate between local storage, session storage, and cookies.**
-
-- `Local Storage`: It is a key value storage that allows you to store data in a user's browser without an expiration date. This means that the data stored in local storage persists even after the browser is closed or the computer is restarted. The data is specific to a domain and can be accessed by scripts from that domain.
-
-- `Session Storage`: Data stored in sessionStorage is tied to a specific session. THis means that the data is lost when the browser is closed. The data is specific to a domain and can only be accessed by scripts from that domain.
-
-- `Cookies`: Cookies are small pieces of data that are stored in a user's browser and are sent to the server with each request. Cookies can be used to store data that persists across multiple sessions or to track user behavior. Cookies have an expiration date, and their lifespan can be set by the server.
-
----
-
-52. **What is JWT? How does it work?**
-
-- JWT stands for `JSON Web Tokens`. It is an open standard for securely transmitting information between parties as a JSON object. JWTs are often used for authenticatino and authorization purposes.
-
-**Here's how it works:**
-
-- `Authentication`: When a user logs in to a web application, the server verifies the user's credentials and generates a JWT. The JWT contains information about the user and is signed with a secret key that only the server knows.
-
-- `Token`: The JWT token consists of three parts: `header`, `payload`, and `signature`. The header contains information about the algorithm used to sign the token. The payload contains the data that is being transmitted (such as used ID and permissions). The signature is used to verify that the token has not been tampered with.
-
-- `Transmission`: The JWT is then sent to the client, typically in an HTTP Authorization header, and the client stores the token in local storage or cookie.
-
-- `Authorization`: Whenever the user needs to access a protected resource, the client sends the JWT to the server as part of the request. The server then verifies the token's signature and decodes the payload to determine whether the user has necessary permissions to access the resource.
-
-- `Expiration`: JWTs can also have an expiration time, after which the token becomes invalid. This helps to prevent unauthorized access to protected resources.
-
-_In summary, JWTs provide a secure way to transmit information between parties by using a signed token that contains a payload of information. The token is used to authenticate and authorize users and can have an expiration time to prevent unauthorized access._
-
----
-
-53. **What are the different datatypes in JavaScript?**
+42. **What are the different datatypes in JavaScript?**
 
 - There are `8` basic data types in JavaScript:
 
@@ -1824,7 +1423,7 @@ _In summary, JWTs provide a secure way to transmit information between parties b
 
 ---
 
-54. **What is the difference between null and undefined?**
+43. **What is the difference between null and undefined?**
 
 | null                                                         | undefined                                                        |
 | ------------------------------------------------------------ | ---------------------------------------------------------------- |
@@ -1834,7 +1433,7 @@ _In summary, JWTs provide a secure way to transmit information between parties b
 
 ---
 
-55. **Output Questions**
+44. **Output Questions**
 
 ```javascript
 const array1 = [1, 2, 3, 4, 5];
@@ -1885,7 +1484,7 @@ console.log(1 === "1"); // false
 
 ---
 
-56. **What's the difference between a function and a method in JavaScript?**
+45. **What's the difference between a function and a method in JavaScript?**
 
 ```javascript
 // function
@@ -1903,7 +1502,7 @@ const obj = {
 
 ---
 
-57. **What is an event flow in JavaScript?**
+46. **What is an event flow in JavaScript?**
 
 - Event flow is the order in which event is received on the web page.
   _There are two possibilities:_
@@ -1916,7 +1515,7 @@ const obj = {
 
 ---
 
-58. **Create a modal as follows:**
+47. **Create a modal as follows:**
 
 - **Create a button, when it's clicked a modal should open with transparent black overlay.**
 - **the modal should have a close modal button (X), which upon clicking closes the modal.**
@@ -2053,7 +1652,7 @@ overlay.addEventListener("click", () => {
 
 ---
 
-59. **What will be the output of this? How will you fix this code?**
+48. **What will be the output of this? How will you fix this code?**
     <span style="color:yellow">[Flipkart]</span>
 
 ```javascript
@@ -2106,7 +1705,379 @@ setupHelp();
 
 ---
 
-60. **Create a list as shown below in react.**
+49. **What is the difference between async/await and promises in JavaScript? When would you use one over the other, and how do you handle errors with async/await and promises?**
+    <span style="color:yellow">[Flipkart, Landmark Group]</span>
+
+- async/await is a newer feature that was introduced in ES2017, while promises were introduced in ES6.
+- Async/await is built on top of promises and provides a more concise syntax for working with asynchronous code.
+- Promises are objects that represent a value that may not be available yet, but will be resolved at some point in the future. Promises have a `then` method that can be used to handle the resolved value and a `catch` method that can be used to handle the error.
+- Async/await allows us to write asynchronous code in a way that looks like synchronous code, which can be easier to read and understand. Withh async/await we use the `await` keyword to pause the execution of the function until the promise is resolved or rejected.
+
+**When to use what:**
+
+- Promises are more appropriate in cases where you need to perform `several` asynchronous operations in parallel. This is because promises can be chained together using the `then()` method, which allows you to execute several asynchronous operations concurrently.
+- Async/await is more appropriate in cases where you need to perform a `sequence` of asynchronous operations . This is because async/await provides a more synchronous way of writing asynchronous code.
+- Promises are more appropriate in cases where you need to handle errors in a more fine-grained way. This is because promises allow you to handle errors on a per-operation basis using the `catch()` method.
+- Async/await is more appropriate in cases where you need to handle errors in a more centralized way. This is because you can use a single `try/catch` block around the entire sequence of asynchronous operations.
+
+_In terms of handling errors:_
+
+- Both async/await and promises allow you to handle errors using the `try/catch` block. With promises, you can use the `catch()` method to catch errors. With async/await, you can use the `try/catch` block around the `await` expression to catch errors.
+
+---
+
+50. **Predict the output of the following code.**
+    <span style="color:yellow">[Thinkify]</span>
+
+```javascript
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter()); // 20
+console.log(shape.perimeter()); // NaN
+```
+
+Since there's no `this` keyword for arrow function.
+
+---
+
+51. **Given a string, reverse the string without reversing it's words.**
+    <span style="color:yellow">[NCR Corporation]</span>
+    <p>Eg: john doe -> doe john</p>
+
+    ```javascript
+    function reverseStringWithoutWords(s) {
+      return s.split(" ").reverse().join(" ");
+    }
+    ```
+
+---
+
+## React
+
+52. **Explain the useMemo hook in react.**
+
+- The useMemo hook accepts a callback function and a list of dependencies as parameters, and returns the `memoized` value returned by the passsed function. The callback passed to the useMemo hook will only be executed if any value passed in the dependency array changes. `It is useful to avoid expensive calculations on every render when the returned value is not going to change.`
+
+```javascript
+const App = () => {
+  const [dark, setDark] = useState(false);
+  const [value, setValue] = useState(1);
+  const doubleNumber = useMemo(() => slowFunction(value), [value]);
+
+  const styles = useMemo(() => {
+    return {
+      backgroundColor: dark ? "black" : "white",
+      color: dark ? "white" : "black",
+    };
+  }, [dark]);
+
+  useEffect(() => {
+    console.log("useEffect called");
+  }, [styles]);
+
+  function handleValueChange(e) {
+    setValue(e.target.value);
+  }
+
+  function handleThemeChange() {
+    console.log("Theme change called");
+    setDark((prevDark) => !prevDark);
+  }
+
+  function slowFunction(value) {
+    console.log("Slow function called");
+    for (let i = 0; i < 1000000000; i++) {}
+    return value * 2;
+  }
+
+  return (
+    <>
+      <input type="number" value={value} onChange={handleValueChange} />
+      <button onClick={handleThemeChange}>Change Theme</button>
+      <div style={styles}>{doubleNumber}</div>
+    </>
+  );
+};
+```
+
+- In the above code, we have an input tag, a button and a div that shows 2x value of the input tag. We've used the useMemo hook in two places here. One where the value passed in dependency array is `primitive` and other where it is a `reference`. The `slowFunction` slows down the code by iterating over a long number, doing nothing. If we don't use the useMemo hook, this function will be called everytime the component rerenders, and the component will re-render everytime any state in the component changes.
+
+- As you can see, the `slowFunction` has nothing to do with changing the `dark` state. Hence we've memoized the `slowFunction`, which will now run only when the `value` state changes. It won't run if we change the `dark` state in our application anymore.
+
+- For the second part, we're memoizing the `styles` object. Here we're checking for `referential equality`. Basically, the `styles` object is formed everytime the component re-renders and even if the value inside it is same, the code inside the `useEffect` would be executed everytime if we don't use `useMemo` since a new object is created everytime and objects point to a particular location, which is compared, rather than what's inside the object. Hence we're memoizing the `styles` object itself such that the code inside useEffect runs only when the value of the `dark` state changes, which in turn would change the `styles` object.
+
+---
+
+53. **Explain the useCallback hook in react.**
+
+- The useCallback hook returns a `memoized callback` when passed a function and a list of dependencies as parameters. It is useful when a component is passing a callback to its child component to prevent the re-rendering of the child component when not required.
+
+- The major diffrence between `useCallback` and `useMemo` is that useCallabck returns a `memoized function` which can later be called. useMemo, on the other hand returns a `memoized value`.
+
+```javascript
+// App.jsx
+
+import { useState, useCallback } from "react";
+import List from "./List";
+
+const App = () => {
+  const [value, setValue] = useState(1);
+  const [isLight, setIsLight] = useState(true);
+  const styles = {
+    backgroundColor: isLight ? "white" : "yellow",
+  };
+
+  const getValueList = useCallback(
+    (incrementor) => {
+      return [
+        value + incrementor,
+        value + 1 + incrementor,
+        value + 2 + incrementor,
+      ];
+    },
+    [value]
+  );
+
+  function handleClick() {
+    setIsLight((prevValue) => !prevValue);
+  }
+
+  function handleValueChange(e) {
+    setValue(parseInt(e.target.value));
+  }
+
+  return (
+    <div style={styles}>
+      <input type="number" value={value} onChange={handleValueChange} />
+      <button onClick={handleClick}>Toggle Theme</button>
+      <List getValueList={getValueList} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+```javascript
+// List.jsx
+
+import { useState, useEffect } from "react";
+
+const List = ({ getValueList }) => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(getValueList(3));
+    console.log("updating items");
+  }, [getValueList]);
+
+  return items.map((item) => <div key={item}>{item}</div>);
+};
+
+export default List;
+```
+
+- In the above code, we have parent App.jsx and child List.jsx. Parent component has a function `getValueList` that returns a list of items which is to be passed to the child component. If we don't use the `useCallback` hook, the `useEffect` inside the child component will be executed everytime the parent re-renders since everytime a new function is being created in the parent, which will always be different `(referential equality)`. In order to get around this, we have `memoized` the `getValueList` function by placing it inside the `useCallback` hook, and since the `getValueList` function returns a list which dependes only on the `value` state, we have the `value` state inside the dependency array. Now the `useEffect` will not be executed if we change the `isLight` state in the parent component, thus optimizing the app.
+
+---
+
+54. **What are pure components in react?**
+
+- A pure component is a component that that does not re-render when the value of state and props associated with it has been updated with the same values. Pure component restricts re-rendering, ensuring higher performance of the component.
+
+```javascript
+import React from "react";
+
+const PureComponent = React.memo((props) => {
+  return <div>{props.text}</div>;
+});
+
+export default PureComponent;
+```
+
+- `React.memo` is a higher-order component that memoizes the output of a component and caches it based on its props. It is used to optimize rendering performance by avoiding unnecessary re-renders of a component when its props have not changed.
+
+- `Use Pure Components when props and state changes are made to primitives. State and prop changes to a reference may lead to incorrect results and inconsistent rendering.`
+
+---
+
+55. **What is the virtual dom in react?**
+    <span style="color:yellow">[Thinkify]</span>
+
+- React maintains a clone of the real DOM (Document Object Model) which is called the virtual DOM. Whenever there's an update, react creates a new version of the virtual DOM.
+
+- It then compares the two versions of the virtual DOM and calculates the shortest path to make those changes. This process of comparison of the old and new versions of the virtual DOM is called `diffing`.
+
+- The shortest path obtained is then used by react to update the real DOM with minimum changes. This entire process is called `reconciliation`.
+
+---
+
+56. **What are the lifecycle methods in a class component?**
+    <span style="color:yellow">[Flipkart]</span>
+
+- We can mainly classify the methods into four phases: `Mounting` `Updating` `Unmounting` `Error Handling`.
+
+- `Mounting`: The mounting lifecycle methods are called when an instance of a component is being created and inserted to the DOM. During the mounting phase, we have four methods: `constructor` `static getDerivedStateFromProps` `render` `componentDidMount`.
+
+- `Updating`: The updating lifecycle methods are called when a component is being re-rendered as a result of changes to either its props or state. During the updating phase, we have 5 methods: `static getDerivedStateFromProps` `shouldComponentUpdate` `render` `getSnapshotBeforeUpdate` `componentDidUpdate`.
+
+- `Unmounting`: The unmounting lifecycle methods are called when a component is being removed from the DOM. During the unmounting phase we have 1 method: `componentWillUnmount`.
+
+- `Error Handling`: The error handling methods are called when there's an error during rendering, in a lifecycle method, or in the constructor of any child component. During error handling, we have 2 methods: `static getDerivedStateFromError` `componentDidCatch`.
+
+---
+
+57. **Why redux uses immutable objects?**
+
+- Redux objects are made immutable for the following reasons:
+
+- Predictability: By making redux objects immutable, the state of the application becomes predictable. When an action is dispatched to the store, the state is updated by returning a new object with the updated properties, rather than mutating the existing object. This means that the state of the application can be tracked and easily tracked back to the source of the changes.
+
+- Performance: By using immutable objects, the performance of the application can be improved, particularly when working with large data sets. Because immutable objects can be shared between different parts of the application without worrying about them being mutated, unnecessary copies of data can be avoided, leading to faster perfromance.
+
+- Debugging: Debugging can be easire with immutable objects because they allow you to easily trace the state of the application back to the source of the changes.
+
+---
+
+58. **What are react hooks? Why should we use them?**
+
+- React hooks are functions that allow us to use React features and `stateful logic` in functional components, which are components defined as plain JavaScript functions.
+
+- React hooks can be used only with functional components. They cannot be used with class components.
+
+- React hooks consist of two types: `state` hooks and `effect` hooks. State hooks, such as `useState` allow us to add state to functional components, which were previously stateless. Effect hooks such as `useEffect` allow us to perform side effects, such as fetching data from a server, in a functional component. <a href="https://blogs-ssk.netlify.app/react-MimicLifecycle">More...</a>
+
+**Here are some reasons why we should use them**
+
+- `Simplicity`: Functional components are simpler to read and write than class components.
+
+- `Performace`: Functional components are generally faster and use less memory than class components. This is because functional components are simpler and ligher-weight than class components.
+
+- `Reusability`: Functional components can be easily reused across our application, as they don't depend on inheritance or lifecycle methods like class components do.
+
+---
+
+59. **Explain internal working of useState() hook in react.**
+
+- The `useState()` is a build-in react hook that allows us to add state to a functional component. It returns an array of two values: `the current state value` and `a function to update the state value`. It takes `initial state value` as argument.
+
+```javascript
+import { useState } from "react";
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  function handleDecrement() {
+    setCount((prevCount) => prevCount - 1);
+  }
+
+  function handleIncrement() {
+    setCount((prevCount) => prevCount + 1);
+  }
+  return (
+    <div>
+      <button onClick={handleDecrement}>Decrement</button>
+      <span>{count}</span>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+- In the above example, we have a `count` state which can be increased or decreased based in the two buttons that are rendered to the screen. **It is important to note that when the state value depends on the previous state, we should always use a function to update the state rather than updating it directly.** `setCount((prevCount) => prevCount + 1)` rather than `setCount(count + 1)`.
+
+- `useState` is asynchronous in nature. Internally, the `useState` hook uses a data structure called **`fiber`** to keep track of the state and the associated update functions. When we call the `useState()`, react creates a new fiber to represent the state and stores it in a data structure called the `fiber tree`. When the state is updated, react creates a new fiber to represent the updated state and adds it to the fiber tree. React then uses the `reconciliation` process to update the DOM.
+
+- It is important to note that `fiber tree` used in useState is different from the `virtual DOM`. useState doesn't directly use the virtual DOM.
+
+- One of the key benefits of the `fiber` data structure is that it allows react to perform updates in a more efficient and flexible way. It allows react to perform updates `asynchronously`, pause and resume updates, and prioritize updates based on their importance and complexity.
+
+- The main difference between the fiber data structure and virtual DOM is their purpose. The `fiber` data structure is used by react to `manage the rendering and updating process of components`, wherease the `virtual DOM` is used by react to `manage updates to the UI`.
+
+---
+
+60. **What is context API in react?**
+
+- The Context API in react is a way to share data between components without, avoiding `prop drilling`. It is a global state management that is suited only for small applications.
+
+```javascript
+// Parent component
+
+import { createContext, useState } from "react";
+import Child from "./Child";
+
+export const AppContext = createContext(null);
+
+const Parent = () => {
+  const [name, setName] = useState("John Doe");
+  <AppContext.Provider value={{ name, setName }}>
+    <Child />
+  </AppContext.Provider>;
+};
+
+export default Parent;
+```
+
+```javascript
+// Child component
+
+import { useContext } from "react";
+import { AppContext } from "./Parent";
+
+const Child = () => {
+  const { name, setName } = useContext(AppContext);
+  return <button onClick={() => setName("Sally Taylor")}>User: {name}</button>;
+};
+
+export default Child;
+```
+
+<a href="https://github.com/SoumyaSagnik/Extended-Notes/blob/main/topics/Context%20Api/readme.md">More...</a>
+
+---
+
+61. **How to handle errors in React components?**
+
+```javascript
+import { useEffect, useState } from "react";
+import { fetchDataFromApi } from "../utils/api";
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading("loading...");
+    setData(null);
+    setError(null);
+
+    fetchDataFromApi(url)
+      .then((res) => {
+        setLoading(false);
+        setData(res);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError("Something went wrong!", err);
+      });
+  }, [url]);
+
+  return { data, loading, error };
+};
+
+export default useFetch;
+```
+
+---
+
+62. **Create a list as shown below in react.**
 <span style="color:yellow">[Flipkart]</span>
 <p align="center"><img src="./images/li-react.png" /></p>
 
@@ -2183,98 +2154,139 @@ export default App;
 
 ---
 
-61. **What's the difference between opacity:0, visibility:hidden, and display:none ?**
+## General
 
-- `opacity:0` : this will make the element transparent. You cannot see it, but you can interact with it. It takes up space.
+63. **What happens when you type a URL?**
 
-- `visibllity:hidden`: this is a combination of opacity:0 and pointer-events:none. In other words, you cannot see it or interact with it. However, it takes up space.
-
-- `display:none`: this removes the element from the layout, hence the element doesn't take up space. You cannot see it or iteract with it.
-
-| opacity:0                        | visibility:hidden                | display:none                         |
-| -------------------------------- | -------------------------------- | ------------------------------------ |
-| element takes up space           | element takes up sapce           | element doesn't take any space       |
-| element is interactable          | element is not interactable      | element is not interactable          |
-| element is present in the layout | element is present in the layout | element is not present in the layout |
+- <a href="https://www.geeksforgeeks.org/what-happens-when-we-type-a-url/">Answer1</a>
+- <a href="https://aws.amazon.com/blogs/mobile/what-happens-when-you-type-a-url-into-your-browser/">Answer2</a>
 
 ---
 
-62. **Create a triangle in CSS**
+64. **What is the difference between SSR and CSR? Which one is better?**
 
-```css
-div {
-  box-sizing: border-box;
-  margin-left: 45%;
-  height: 0;
-  width: 0;
-  border-top: 5rem solid transparent;
-  border-bottom: 5rem solid transparent;
-  border-right: 5rem solid yellow;
-  rotate: 90deg;
-}
-```
+**Server Side Rendering (SSR)**
+
+- In SSR, all page resources are rendered on the server rather than the browser. The server sends fully rendered HTML, CSS and JS to the client when a request is made.
+
+**Working of SSR**
+
+- The user requests for a web page in a browser.
+
+- The browser then connects to the server, which already has the pre-rendered HTML and CSS code for the page.
+
+- HTML and CSS are displayed on the user's browser, but the page is not yet interactive.
+
+- The browser then downloads the JavaScript of the page, which is available on the server.
+
+- The browser executes the JavaScript code.
+
+- The page is now fully loaded and is now interactable.
+
+**Advantages of SSR**
+
+- `Faster initial page load time`: This provides a good user experience.
+
+- `Better SEO`: Due to the faster initial load time, search engine bots can crawl and index pages better.
+
+- `Optimal for users with a slow internet connection`: They can see the rendered HTML while JS is processing.
+
+- `Excellent Social Media Optimization (SMO)`: Whenever you copy a page link and send it to others or post it on social media, `a nice preview will show up with the page title, description and image`.
+
+**Disadvantages of SSR**
+
+- `Higher server load`: The browser keeps sending requests to the server as all page resources are located on the server.
+
+- `Time consuming`: Rendering huge applications on the server can be time-consuming.
+
+- `Less interactive`: Initially the page may be visible to the users but they can't interact with it.
+
+**Client Side Rendering (CSR)**
+
+- CSR is a technique where all the page resources are rendered on the client's browser rather than the server. This is done using a JS framework that compiles and generates code at the browser-end.
+
+**Working of CSR**
+
+- The user requests for a web page in the browser.
+
+- The server/ CDN(Content Delivery Network) responds to the request with an HTML page that contains links to essential JavaScript files.
+
+- The page is not visible to the user and only a loading sign can be seen.
+
+- The browser downloads the JavaScript through the links in the HTML.
+
+- The JavaScript is then executed through the framework.
+
+- Thhe final request is sent to the server for the final render.
+
+- The user can now see and interact with the page.
+
+**Advantages of CSR**
+
+- `Faster render of subsequent pages`: The page renders quickly after the initial page load time.
+
+- `Offers quicker navigation of the website`
+
+- `Puts less load on the server`: The JavaScript is executed on the client's browser, putting less load on the server.
+
+- `More interactive`: The rendered page is interactive from the first second.
+
+**Disadvantages of CSR**
+
+- `Slower initial load`: The HTML, CSS, and JS have to be rendered first and then displayed to the user, increasing the time taken to load the initial page.
+
+- `Worse SEO than SSR`
+
+**SSR vs CSR**
+
+- `Page load time`: Page load time is an important metric, especially for SEO. The initial page load time in SSR is faster than in CSR. This is because in SSR, the server responds by sending pre-rendered HTML, which can be viewed by the user. In CSR, the entire code (HTML, CSS, and JS) needs to be rendered before the user can view the page.
+
+- `Caching`: Caching is a technique where important, reusable scripts are stored in the client's browser. This saves time as the cached scripts don't need to be loaded again when a user revisits the website. `CSR wins in this case`. In SSR, since the page resources lie on the server, the browser needs to send timely requests to the server.
+
+- `SEO`: SSR is better for SEO than CSR.
+
+- The best thing to use would be a combination of both SSR and CSR i.e., `SSR with hydration`.
+
+**SSR with hydration**
+
+- This is a technique where the server generates the initial HTML and sends it to the client, then the client takes over and `hydrates` the static HTML into a fully interactive application. This combines the two main advantages of SSR and CSR. SSR initially so that SEO is better with less initial load time and then CSR so that the website is more interactive.
+
+- NextJS is built on SSR with hydration.
 
 ---
 
-63. **Differentiate between Babel and Webpack.**
-    <span style="color:yellow">[Flipkart]</span>
+65. **What is a PWA?**
 
-| Babel                                                                                                                                            | Webpack                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Babel is a JavaScript compiler that is used to convert ES6+ code into backwards compatible version of JavaScript that can run on older browsers. | Webpack is a module bundler that is used to package multiple JavaScript files and their dependencies into a single file or a set of files that can be loaded by a web browser. |
-| Babel is focused on transpiling JavaScript code to make it compatible with different environments.                                               | Webpack is focused on bundling and optimizing JavaScript code for efficient delivery to the browser.                                                                           |
+- `Progressive Web Apps` (PWA) are web applications that are designed to provide a user experience that is similar to native mobile apps. PWAs can be accessed through a web browser, but they can also be installed on the user's device and accessed from the home screen, just like a native app.
 
----
+**Benefits of PWAs are listed below:**
 
-63. **What is the difference between async/await and promises in JavaScript? When would you use one over the other, and how do you handle errors with async/await and promises?**
-    <span style="color:yellow">[Flipkart, Landmark Group]</span>
+- `Offline functionality`: PWAs can work offline.
 
-- async/await is a newer feature that was introduced in ES2017, while promises were introduced in ES6.
-- Async/await is built on top of promises and provides a more concise syntax for working with asynchronous code.
-- Promises are objects that represent a value that may not be available yet, but will be resolved at some point in the future. Promises have a `then` method that can be used to handle the resolved value and a `catch` method that can be used to handle the error.
-- Async/await allows us to write asynchronous code in a way that looks like synchronous code, which can be easier to read and understand. Withh async/await we use the `await` keyword to pause the execution of the function until the promise is resolved or rejected.
+- `App-like experience`: PWAs prove a user experience that is similar to native apps, with features like push notifications and the ability to be installed on the home screen.
 
-**When to use what:**
+- `Fast performance`: PWAs are designed to be fast and responsive, providing a smooth and seamless user experience.
 
-- Promises are more appropriate in cases where you need to perform `several` asynchronous operations in parallel. This is because promises can be chained together using the `then()` method, which allows you to execute several asynchronous operations concurrently.
-- Async/await is more appropriate in cases where you need to perform a `sequence` of asynchronous operations . This is because async/await provides a more synchronous way of writing asynchronous code.
-- Promises are more appropriate in cases where you need to handle errors in a more fine-grained way. This is because promises allow you to handle errors on a per-operation basis using the `catch()` method.
-- Async/await is more appropriate in cases where you need to handle errors in a more centralized way. This is because you can use a single `try/catch` block around the entire sequence of asynchronous operations.
-
-_In terms of handling errors:_
-
-- Both async/await and promises allow you to handle errors using the `try/catch` block. With promises, you can use the `catch()` method to catch errors. With async/await, you can use the `try/catch` block around the `await` expression to catch errors.
+- `Cross-platform compatibility`: PWAs can run on any device, with a modern web browser, including desktops, laptops, tablets, smartphones, etc.
 
 ---
 
-64. **Predict the output of the following code.**
-    <span style="color:yellow">[Thinkify]</span>
+66. **What is JWT? How does it work?**
 
-```javascript
-const shape = {
-  radius: 10,
-  diameter() {
-    return this.radius * 2;
-  },
-  perimeter: () => 2 * Math.PI * this.radius,
-};
+- JWT stands for `JSON Web Tokens`. It is an open standard for securely transmitting information between parties as a JSON object. JWTs are often used for authenticatino and authorization purposes.
 
-console.log(shape.diameter()); // 20
-console.log(shape.perimeter()); // NaN
-```
+**Here's how it works:**
 
-Since there's no `this` keyword for arrow function.
+- `Authentication`: When a user logs in to a web application, the server verifies the user's credentials and generates a JWT. The JWT contains information about the user and is signed with a secret key that only the server knows.
 
----
+- `Token`: The JWT token consists of three parts: `header`, `payload`, and `signature`. The header contains information about the algorithm used to sign the token. The payload contains the data that is being transmitted (such as used ID and permissions). The signature is used to verify that the token has not been tampered with.
 
-65. **Given a string, reverse the string without reversing it's words.**
-    <span style="color:yellow">[NCR Corporation]</span>
-    <p>Eg: john doe -> doe john</p>
+- `Transmission`: The JWT is then sent to the client, typically in an HTTP Authorization header, and the client stores the token in local storage or cookie.
 
-    ```javascript
-    function reverseStringWithoutWords(s) {
-      return s.split(" ").reverse().join(" ");
-    }
-    ```
+- `Authorization`: Whenever the user needs to access a protected resource, the client sends the JWT to the server as part of the request. The server then verifies the token's signature and decodes the payload to determine whether the user has necessary permissions to access the resource.
+
+- `Expiration`: JWTs can also have an expiration time, after which the token becomes invalid. This helps to prevent unauthorized access to protected resources.
+
+_In summary, JWTs provide a secure way to transmit information between parties by using a signed token that contains a payload of information. The token is used to authenticate and authorize users and can have an expiration time to prevent unauthorized access._
 
 ---
