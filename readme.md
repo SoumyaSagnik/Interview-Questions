@@ -1748,6 +1748,43 @@ Since there's no `this` keyword for arrow function.
 
 ---
 
+38. **Implement stack in JavaScript.**
+<span style="color:yellow">[Landmark Group]</span>
+
+```javascript
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+
+  push(element) {
+    this.items.push(element);
+  }
+
+  pop() {
+    if (this.isEmpty()) return "Underflow";
+    return this.items.pop();
+  }
+
+  peek() {
+    if (this.isEmpty()) return "No items in stack";
+    return this.items[this.items.length - 1];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  printStack() {
+    let str = "";
+    for (let i = 0; i < this.items.length; i++) {
+      str += this.items[i] + " ";
+    }
+    return str.trim();
+  }
+}
+```
+
 ## <a id="react">React</a>
 
 1. **Explain the useMemo hook in react.**
