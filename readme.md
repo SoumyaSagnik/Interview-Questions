@@ -1785,6 +1785,8 @@ class Stack {
 }
 ```
 
+---
+
 ## <a id="react">React</a>
 
 1. **Explain the useMemo hook in react.**
