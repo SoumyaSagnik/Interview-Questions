@@ -1787,6 +1787,41 @@ class Stack {
 
 ---
 
+39. **Implement Queue in JavaScript.**
+
+```javascript
+class Queue {
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(value) {
+        this.items.push(value);
+    }
+
+    dequeue() {
+        if(this.isEmpty()) return "Underflow";
+        return this.items.shift();
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    front() {
+        if(this.isEmpty()) return "Queue is empty";
+        return this.items[0];
+    }
+
+    printQueue() {
+        console.log(this.items);
+        return this.items;
+    }
+}
+```
+
+---
+
 ## <a id="react">React</a>
 
 1. **Explain the useMemo hook in react.**
