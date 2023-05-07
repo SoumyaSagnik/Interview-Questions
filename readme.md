@@ -926,7 +926,7 @@ x(); // 10
 10. **Explain event loop in JavaScript.**
     <span style="color:yellow">[Flipkart]</span>
 
-- JavaScript is a synchronous single threaded language. It has one `call stack` inside which the code is executed, and it perform only one task at a time.
+- JavaScript is a synchronous single threaded language. It has one `call stack` inside which the code is executed, and it can perform only one task at a time.
 
 - All the asynchronous activities in JS is taken out of call stack and once finished, is put into one of these two queues: `callback queue` or `microtask queue`.
 
