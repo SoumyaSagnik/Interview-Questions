@@ -220,6 +220,72 @@ div {
 
 ---
 
+14. **Create a 5 \* 5 chess board using HTML & CSS**
+    <span style="color:yellow">[Thinkify]</span>
+
+```html
+<div class="board">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+```
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.box {
+  width: 10vmin;
+  height: 10vmin;
+  border: 1px solid black;
+}
+
+.box:nth-child(even) {
+  background-color: black;
+}
+```
+
+---
+
 ## <a id="js">JavaScript</a>
 
 1. **Differentiate between let, var, and const.**
@@ -1749,7 +1815,7 @@ Since there's no `this` keyword for arrow function.
 ---
 
 38. **Implement stack in JavaScript.**
-<span style="color:yellow">[Landmark Group]</span>
+    <span style="color:yellow">[Landmark Group]</span>
 
 ```javascript
 class Stack {
@@ -1791,32 +1857,32 @@ class Stack {
 
 ```javascript
 class Queue {
-    constructor() {
-        this.items = [];
-    }
+  constructor() {
+    this.items = [];
+  }
 
-    enqueue(value) {
-        this.items.push(value);
-    }
+  enqueue(value) {
+    this.items.push(value);
+  }
 
-    dequeue() {
-        if(this.isEmpty()) return "Underflow";
-        return this.items.shift();
-    }
+  dequeue() {
+    if (this.isEmpty()) return "Underflow";
+    return this.items.shift();
+  }
 
-    isEmpty() {
-        return this.items.length === 0;
-    }
+  isEmpty() {
+    return this.items.length === 0;
+  }
 
-    front() {
-        if(this.isEmpty()) return "Queue is empty";
-        return this.items[0];
-    }
+  front() {
+    if (this.isEmpty()) return "Queue is empty";
+    return this.items[0];
+  }
 
-    printQueue() {
-        console.log(this.items);
-        return this.items;
-    }
+  printQueue() {
+    console.log(this.items);
+    return this.items;
+  }
 }
 ```
 
