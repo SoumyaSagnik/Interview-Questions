@@ -1888,6 +1888,19 @@ class Queue {
 
 ---
 
+40. **Predict the output. Explain the result.**
+    <span style="color:yellow">[Flipkart]</span>
+
+    ```javascript
+    console.log(0.1 + 0.2 === 0.3); // false
+    ```
+
+    - The output will be _**false**_. In JS, numbers are represented using the `IEEE 754` standard for floating-point arithmetic. This standard specifies how numbers are represented in binary form, and it has limitations in terms of `precision` and `accuracy`.
+
+    - `0.1` & `0.2` have an infinite decimal expansion in base 2. Therefore, when we add them together, we get a number close to, but not exactly, `0.3`.
+
+    ***
+
 ## <a id="react">React</a>
 
 1. **Explain the useMemo hook in react.**
