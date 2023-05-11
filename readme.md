@@ -1899,7 +1899,30 @@ class Queue {
 
     - `0.1` & `0.2` have an infinite decimal expansion in base 2. Therefore, when we add them together, we get a number close to, but not exactly, `0.3`.
 
-    ***
+---
+
+41. **Predict the output.**
+
+```javascript
+function foo() {
+  try {
+    console.l0g("a");
+    return 3;
+  } catch (e) {
+    console.log("Error");
+    return 0;
+  } finally {
+    console.log("finally");
+  }
+}
+
+console.log(foo());
+
+// Output
+Error
+finally
+0
+```
 
 ## <a id="react">React</a>
 
