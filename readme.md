@@ -6,7 +6,7 @@
 
 ## <a id="html_css">HTML/CSS</a>
 
-1. **What is div vs span or block vs inline?**
+1. **Differentiate between div & span or block & inline.**
 
 - `Block-level Elements`: A block level element always starts on a new line, and the browsers automatically add some space (margin) before and after the element. A block level element always takes up the full width available (100% of parent). Eg: div, p.
 
